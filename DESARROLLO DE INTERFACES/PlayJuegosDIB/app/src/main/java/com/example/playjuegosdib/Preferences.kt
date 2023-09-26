@@ -4,14 +4,19 @@ import android.widget.Toast
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExtendedFloatingActionButton
+import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Slider
@@ -27,13 +32,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 
 @Composable
 fun Preferences() {
     var estadoRadio by rememberSaveable { mutableStateOf<String?>(null) }
-    var puntuacion by remember { mutableStateOf(0) }
+    var puntuacion by remember { mutableStateOf(0f) }
+    var estadoFilterChip by rememberSaveable { mutableStateOf<String?>(null) }
 
     Box(
         modifier = Modifier.fillMaxSize()
@@ -51,9 +58,14 @@ fun Preferences() {
             MyRadioButton(estadoRadio) {
                     selectedOption -> estadoRadio = selectedOption
             }
-            SimpleDiscreteSlider()
+            SimpleDiscreteSlider(puntuacion) {
+                sliderValue -> puntuacion = sliderValue
+            }
+            FilterChips(estadoFilterChip) {
+                selectedOption -> estadoFilterChip = selectedOption
+            }
         }
-        FloatingActionButton(estadoRadio)
+        FloatingActionButton(estadoRadio, puntuacion)
     }
 }
 
@@ -130,20 +142,24 @@ fun MyRadioButton(estadoRadio: String?, onOptionSelected: (String) -> Unit) {
 }
 
 @Composable
-fun SimpleDiscreteSlider() {
-    val range = 0.0f..100.0f
+fun SimpleDiscreteSlider(puntuacion: Float, onSliderValueChanged: (Float) -> Unit) {
+    val range = 0.0f..10.0f
     val steps = 10
-    var selection by remember { mutableStateOf(0f) }
+    var selection by remember { mutableStateOf(puntuacion) }
     Slider(
         value = selection,
         valueRange = range,
         steps = steps,
-        onValueChange = { selection = it }
+        onValueChange = {
+            selection = it
+            onSliderValueChanged(it)
+                        },
+        modifier = Modifier.fillMaxWidth()
     )
 }
 
 @Composable
-fun FloatingActionButton(estadoRadio: String?, puntuacion: Int) {
+fun FloatingActionButton(estadoRadio: String?, puntuacion: Float) {
     var context = LocalContext.current
     Box(
         modifier = Modifier
@@ -160,7 +176,7 @@ fun FloatingActionButton(estadoRadio: String?, puntuacion: Int) {
             },
             onClick = {
                 if (estadoRadio != null) {
-                    Toast.makeText(context, "Has seleccionado " + estadoRadio + " con una puntuación de " + puntuacion, Toast.LENGTH_LONG)
+                    Toast.makeText(context, "Has seleccionado $estadoRadio con una puntuación de $puntuacion", Toast.LENGTH_LONG)
                         .show()
                 } else {
                     Toast.makeText(context, "No has pulsado ninguna opción", Toast.LENGTH_LONG)
@@ -168,8 +184,144 @@ fun FloatingActionButton(estadoRadio: String?, puntuacion: Int) {
                 }
             },
             containerColor = Color.White,
-            modifier = Modifier.size(70.dp)
+            modifier = Modifier
+                .size(70.dp)
                 .clip(CircleShape)
         )
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun FilterChips(estadoFilterChip: String?, onOptionSelected: (String) -> Unit) {
+    var context = LocalContext.current
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+    ) {
+        Text(
+            text = "Plataformas:",
+            textAlign = TextAlign.Left,
+            modifier = Modifier.fillMaxWidth(),
+            fontWeight = FontWeight.Bold
+        )
+        Spacer(modifier = Modifier.height(10.dp))
+        Row {
+            FilterChip(
+                selected = estadoFilterChip=="PS4",
+                onClick = {
+                    Toast.makeText(context, "Has seleccionado PS4", Toast.LENGTH_LONG)
+                    .show()
+                    onOptionSelected("PS4")
+                          },
+                label = {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        if (estadoFilterChip == "PS4") {
+                            Icon(
+                                imageVector = Icons.Default.Check,
+                                contentDescription = null,
+                                tint = Color.Black,
+                            )
+                        }
+                        Text(text = "PS4")
+                    }
+                }
+            )
+            Spacer(modifier = Modifier.width(4.dp))
+            FilterChip(
+                selected = estadoFilterChip=="XBOX",
+                onClick = {
+                    Toast.makeText(context, "Has seleccionado XBOX", Toast.LENGTH_LONG)
+                        .show()
+                    onOptionSelected("XBOX")
+                },
+                label = {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        if (estadoFilterChip == "XBOX") {
+                            Icon(
+                                imageVector = Icons.Default.Check,
+                                contentDescription = "",
+                                tint = Color.Black,
+                            )
+                        }
+                        Text(text = "XBOX")
+                    }
+                }
+            )
+            Spacer(modifier = Modifier.width(4.dp))
+            FilterChip(
+                selected = estadoFilterChip=="3DS",
+                onClick = {
+                    Toast.makeText(context, "Has seleccionado 3DS", Toast.LENGTH_LONG)
+                        .show()
+                    onOptionSelected("3DS")
+                },
+                label = {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        if (estadoFilterChip == "3DS") {
+                            Icon(
+                                imageVector = Icons.Default.Check,
+                                contentDescription = "",
+                                tint = Color.Black,
+                            )
+                        }
+                        Text(text = "3DS")
+                    }
+                }
+            )
+            Spacer(modifier = Modifier.width(4.dp))
+            FilterChip(
+                selected = estadoFilterChip=="WII",
+                onClick = {
+                    Toast.makeText(context, "Has seleccionado WII", Toast.LENGTH_LONG)
+                        .show()
+                    onOptionSelected("WII")
+                },
+                label = {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        if (estadoFilterChip == "WII") {
+                            Icon(
+                                imageVector = Icons.Default.Check,
+                                contentDescription = "",
+                                tint = Color.Black,
+                            )
+                        }
+                        Text(text = "WII")
+                    }
+                }
+            )
+            Spacer(modifier = Modifier.width(4.dp))
+            FilterChip(
+                selected = estadoFilterChip=="WIIU",
+                onClick = {
+                    Toast.makeText(context, "Has seleccionado WIIU", Toast.LENGTH_LONG)
+                        .show()
+                    onOptionSelected("WIIU")
+                },
+                label = {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        if (estadoFilterChip == "WIIU") {
+                            Icon(
+                                imageVector = Icons.Default.Check,
+                                contentDescription = "",
+                                tint = Color.Black,
+                            )
+                        }
+                        Text(text = "WIIU")
+                    }
+                }
+            )
+        }
     }
 }

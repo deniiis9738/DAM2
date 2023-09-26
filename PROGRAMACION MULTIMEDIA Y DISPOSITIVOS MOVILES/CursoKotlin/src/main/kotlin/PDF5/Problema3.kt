@@ -7,7 +7,7 @@ import kotlin.system.exitProcess
 fun main() {
     var (firstNumber, secondNumber) = askData()
 
-    if (firstNumber > secondNumber) {
+    if (firstNumber < secondNumber) {
         var calculatePlus = calculatePlus(firstNumber, secondNumber)
         println("La suma de $firstNumber + $secondNumber es $calculatePlus")
         var calculateMinus = calculateMinus(firstNumber, secondNumber)

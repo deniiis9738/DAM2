@@ -38,7 +38,7 @@ fun MainMenu(navController: NavController) {
                 ) {
                     Image(
                         painter = painterResource(id = R.drawable.androidgame),
-                        contentDescription = "Email",
+                        contentDescription = "",
                         Modifier
                             .size(150.dp)
                     )
@@ -52,7 +52,7 @@ fun MainMenu(navController: NavController) {
                     Spacer(modifier = Modifier.height(50.dp))
 
                     Row {
-                        Button(onClick = { /*TODO*/ }, modifier = Modifier
+                        Button(onClick = { navController.navigate("Play") }, modifier = Modifier
                             .width(200.dp)
                             .padding(end = 25.dp)) {
                             Text(
@@ -99,7 +99,7 @@ fun MainMenu(navController: NavController) {
             ){
                 Image(
                     painter = painterResource(id = R.drawable.androidgame),
-                    contentDescription = "Email",
+                    contentDescription = "",
                     Modifier
                         .size(200.dp)
                 )
@@ -113,7 +113,7 @@ fun MainMenu(navController: NavController) {
 
                 Spacer(modifier = Modifier.height(50.dp))
 
-                Button(onClick = { /*TODO*/ }, modifier = Modifier.width(200.dp)) {
+                Button(onClick = { navController.navigate("Play") }, modifier = Modifier.width(200.dp)) {
                     Text(
                         text = stringResource(id = R.string.play),
                         textAlign = TextAlign.Center,
