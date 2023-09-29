@@ -1,29 +1,19 @@
-package PDF6
+package PDF8
 
 import java.lang.Exception
 import java.util.*
 import kotlin.system.exitProcess
 
 fun main() {
-    var number = askData()
+    val day = obtainNumber("Introduce el día: ")
+    val month = obtainNumber("Introduce el mes: ")
+    val year = obtainNumber("Introduce el año: ")
 
-    val result = if (number % 2 == 0) {
-        println("Cuadrado")
-        Math.pow(number.toDouble(), 2.00)
+    if (month == 10 && month == 11 && month == 12) {
+        println("Navidad")
     } else {
-        println("Cubo")
-        Math.pow(number.toDouble(), 3.00)
+        println("No es navidad")
     }
-
-    println("El resultado es $result")
-
-    
-}
-
-private fun askData(): Int {
-    var number = obtainNumber("Introduce el primer número: ")
-
-    return number
 }
 
 private fun obtainNumber(mensaje: String): Int {

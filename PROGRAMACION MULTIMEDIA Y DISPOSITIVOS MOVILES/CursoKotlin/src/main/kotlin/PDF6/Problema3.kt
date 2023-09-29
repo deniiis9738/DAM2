@@ -5,23 +5,20 @@ import java.util.*
 import kotlin.system.exitProcess
 
 fun main() {
-    var number = askData()
+    val number = askData()
 
-    val result = if (number % 2 == 0) {
-        println("Cuadrado")
-        Math.pow(number.toDouble(), 2.00)
+    val digits = if (number in 10..99) {
+        2
+    } else if (number in 1..9){
+        1
     } else {
-        println("Cubo")
-        Math.pow(number.toDouble(), 3.00)
+        null
     }
 
-    println("El resultado es $result")
-
-    
+    println(digits)
 }
-
 private fun askData(): Int {
-    var number = obtainNumber("Introduce el primer número: ")
+    var number = obtainNumber("Introduce un número entre 1 y 99: ")
 
     return number
 }

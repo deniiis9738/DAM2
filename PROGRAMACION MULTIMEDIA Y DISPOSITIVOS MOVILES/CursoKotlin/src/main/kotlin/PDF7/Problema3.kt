@@ -1,25 +1,20 @@
-package PDF6
+package PDF7
 
 import java.lang.Exception
 import java.util.*
 import kotlin.system.exitProcess
 
 fun main() {
-    var number = askData()
+    val number = askData()
 
-    val result = if (number % 2 == 0) {
-        println("Cuadrado")
-        Math.pow(number.toDouble(), 2.00)
+    if (number > 0) {
+        println("Positivo")
+    } else if (number < 0) {
+        println("Negativo")
     } else {
-        println("Cubo")
-        Math.pow(number.toDouble(), 3.00)
+        println("Nulo")
     }
-
-    println("El resultado es $result")
-
-    
 }
-
 private fun askData(): Int {
     var number = obtainNumber("Introduce el primer número: ")
 

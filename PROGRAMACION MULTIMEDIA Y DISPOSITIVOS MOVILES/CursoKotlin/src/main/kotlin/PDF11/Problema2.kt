@@ -1,27 +1,23 @@
-package PDF6
+package PDF11
 
 import java.lang.Exception
 import java.util.*
 import kotlin.system.exitProcess
 
 fun main() {
-    var number = askData()
+    var plus = 0
 
-    val result = if (number % 2 == 0) {
-        println("Cuadrado")
-        Math.pow(number.toDouble(), 2.00)
-    } else {
-        println("Cubo")
-        Math.pow(number.toDouble(), 3.00)
+    for (i in 1 .. 10) {
+        var number = askData()
+        plus += number
     }
 
-    println("El resultado es $result")
-
-    
+    println("La suma es: $plus")
+    println("El promedio es: " + plus / 10)
 }
 
 private fun askData(): Int {
-    var number = obtainNumber("Introduce el primer número: ")
+    var number = obtainNumber("Introduce un número: ")
 
     return number
 }

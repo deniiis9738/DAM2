@@ -1,6 +1,7 @@
 package com.example.playjuegosdib
 
 import android.widget.Toast
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -8,12 +9,15 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.outlined.Star
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.FilterChip
@@ -36,11 +40,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 
+
 @Composable
 fun Preferences() {
     var estadoRadio by rememberSaveable { mutableStateOf<String?>(null) }
     var puntuacion by remember { mutableStateOf(0f) }
     var estadoFilterChip by rememberSaveable { mutableStateOf<String?>(null) }
+    var estadoRating by remember { mutableStateOf(0.0) }
 
     Box(
         modifier = Modifier.fillMaxSize()
@@ -61,10 +67,15 @@ fun Preferences() {
             SimpleDiscreteSlider(puntuacion) {
                 sliderValue -> puntuacion = sliderValue
             }
+            RatingBar(
+                rating = estadoRating,
+                onRatingChanged = {newRating -> estadoRating = newRating}
+            )
             FilterChips(estadoFilterChip) {
                 selectedOption -> estadoFilterChip = selectedOption
             }
         }
+        SmallFAB(estadoRating, estadoRadio)
         FloatingActionButton(estadoRadio, puntuacion)
     }
 }
@@ -159,7 +170,7 @@ fun SimpleDiscreteSlider(puntuacion: Float, onSliderValueChanged: (Float) -> Uni
 }
 
 @Composable
-fun FloatingActionButton(estadoRadio: String?, puntuacion: Float) {
+private fun FloatingActionButton(estadoRadio: String?, puntuacion: Float) {
     var context = LocalContext.current
     Box(
         modifier = Modifier
@@ -197,7 +208,6 @@ fun FilterChips(estadoFilterChip: String?, onOptionSelected: (String) -> Unit) {
     var context = LocalContext.current
     Column(
         modifier = Modifier
-            .fillMaxSize()
             .padding(16.dp)
     ) {
         Text(
@@ -323,5 +333,67 @@ fun FilterChips(estadoFilterChip: String?, onOptionSelected: (String) -> Unit) {
                 }
             )
         }
+    }
+}
+
+@Composable
+fun RatingBar(
+    modifier: Modifier = Modifier,
+    rating: Double = 0.0,
+    stars: Int = 10,
+    starsColor: Color = Color.Red,
+    onRatingChanged: (Double) -> Unit
+) {
+    var estadoRating by remember { mutableStateOf(rating) }
+
+    Row(
+        modifier = modifier,
+    ) {
+        for (i in 1..stars) {
+            val filled = i <= estadoRating
+            Icon(
+                imageVector = if (filled) Icons.Filled.Star else Icons.Outlined.Star,
+                contentDescription = null,
+                tint = if (filled) starsColor else Color.Gray,
+                modifier = Modifier.clickable {
+                    estadoRating = i.toDouble()
+                    onRatingChanged(estadoRating)
+                }
+            )
+            Spacer(modifier = Modifier.width(13.dp))
+        }
+    }
+}
+
+@Composable
+fun SmallFAB(estadoRating: Double, estadoRadio: String?) {
+    val context = LocalContext.current
+
+    Box(
+        modifier = Modifier
+            .padding(16.dp)
+            .fillMaxSize()
+            .offset(300.dp, 580.dp)
+    ) {
+        ExtendedFloatingActionButton(
+            content = {
+                Icon(
+                    imageVector = Icons.Default.Star,
+                    contentDescription = "",
+                )
+            },
+            onClick = {
+                if (estadoRadio != null) {
+                    Toast.makeText(context, "Has seleccionado $estadoRadio con una puntuación de $estadoRating", Toast.LENGTH_LONG)
+                        .show()
+                } else {
+                    Toast.makeText(context, "No has pulsado ninguna opción", Toast.LENGTH_LONG)
+                        .show()
+                }
+            },
+            containerColor = Color.White,
+            modifier = Modifier
+                .size(55.dp)
+        )
     }
 }

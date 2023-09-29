@@ -1,4 +1,4 @@
-package PDF6
+package PDF9
 
 import java.lang.Exception
 import java.util.*
@@ -6,22 +6,15 @@ import kotlin.system.exitProcess
 
 fun main() {
     var number = askData()
+    var i = 1
 
-    val result = if (number % 2 == 0) {
-        println("Cuadrado")
-        Math.pow(number.toDouble(), 2.00)
-    } else {
-        println("Cubo")
-        Math.pow(number.toDouble(), 3.00)
+    while (i <= number) {
+        println(i)
+        i += 1
     }
-
-    println("El resultado es $result")
-
-    
 }
-
 private fun askData(): Int {
-    var number = obtainNumber("Introduce el primer número: ")
+    var number = obtainNumber("Introduce un número: ")
 
     return number
 }
