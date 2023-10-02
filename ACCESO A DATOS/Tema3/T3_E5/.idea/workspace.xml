@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ae2375e6-96a7-4687-985a-4ce6db5faa2a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Rutes.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Coordenades.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Ex3_5_PassarRutesObjJSON.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/PuntGeo.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Ruta.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Rutes.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/CursoKotlin/src/main/kotlin/PDF21/Problema1.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T3_E4/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T3_E4/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T3_Exemples/T3_Exemple_1_1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../T3_Exemples/T3_Exemple_1_1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T3_Exemples/src/main/kotlin/Exemple_3_3/Empleat.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../T3_Exemples/src/main/kotlin/Exemple_3_3/Empleat.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/CursoKotlin/src/main/kotlin/PDF17/Problema1.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/CursoKotlin/src/main/kotlin/PDF17/Problema1.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/CursoKotlin/src/main/kotlin/PDF17/Problema2.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/CursoKotlin/src/main/kotlin/PDF17/Problema2.kt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin File" />
+        <option value="Kotlin Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="2WDgDpTPdm6XQoCvHAmVbAzE0bf" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/INFORMATICA/alu10499738/Escriptori/EjerciciosDAM2/ACCESO A DATOS/Tema3/T3_E3",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ae2375e6-96a7-4687-985a-4ce6db5faa2a" name="Changes" comment="" />
+      <created>1696272448188</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1696272448188</updated>
+      <workItem from="1696272449204" duration="244000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

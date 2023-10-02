@@ -10,4 +10,4 @@ fun main() {
     println("La superfície del cuadrado es: ${surface(side)}")
 }
 
-fun surface(side: Int) = side * side
+private fun surface(side: Int) = side * side
