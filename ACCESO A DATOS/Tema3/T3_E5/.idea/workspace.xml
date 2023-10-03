@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="ae2375e6-96a7-4687-985a-4ce6db5faa2a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Rutes.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Coordenades.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Ex3_5_PassarRutesObjJSON.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/PuntGeo.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Ruta.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Rutes.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/CursoKotlin/src/main/kotlin/PDF21/Problema1.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../T3_E2/src/main/kotlin/Rutes.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../T3_E6/Rutes.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../T3_E6/src/main/kotlin/Coordenades.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../T3_E6/src/main/kotlin/Ex3_6_VisRutaJSON.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../T3_E6/src/main/kotlin/PuntGeo.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../T3_E6/src/main/kotlin/Ruta.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../T3_E6/src/main/kotlin/Rutes.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T3_E1/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T3_E1/.idea/libraries/KotlinJavaRuntime.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T3_E1/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T3_E1/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T3_E1/T3_E1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../T3_E1/T3_E1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T3_E2/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T3_E2/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../T3_E4/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T3_E4/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T3_Exemples/T3_Exemple_1_1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../T3_Exemples/T3_Exemple_1_1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T3_Exemples/src/main/kotlin/Exemple_3_3/Empleat.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../T3_Exemples/src/main/kotlin/Exemple_3_3/Empleat.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/CursoKotlin/src/main/kotlin/PDF17/Problema1.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/CursoKotlin/src/main/kotlin/PDF17/Problema1.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/CursoKotlin/src/main/kotlin/PDF17/Problema2.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/CursoKotlin/src/main/kotlin/PDF17/Problema2.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/T3_E5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/T3_E5.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Ex3_5_PassarRutesObjJSON.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Ex3_5_PassarRutesObjJSON.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,9 +38,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2WDgDpTPdm6XQoCvHAmVbAzE0bf" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -48,7 +55,11 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/INFORMATICA/alu10499738/Escriptori/EjerciciosDAM2/ACCESO A DATOS/Tema3/T3_E3",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/denis/Desktop/DAM2/ACCESO A DATOS/Tema3/T3_E5",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
