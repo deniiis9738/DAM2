@@ -5,22 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae2375e6-96a7-4687-985a-4ce6db5faa2a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../T3_E2/src/main/kotlin/Rutes.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../T3_E6/Rutes.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../T3_E6/src/main/kotlin/Coordenades.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../T3_E6/src/main/kotlin/Ex3_6_VisRutaJSON.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../T3_E6/src/main/kotlin/PuntGeo.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../T3_E6/src/main/kotlin/Ruta.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../T3_E6/src/main/kotlin/Rutes.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T3_E1/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T3_E1/.idea/libraries/KotlinJavaRuntime.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T3_E1/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T3_E1/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T3_E1/T3_E1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../T3_E1/T3_E1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T3_E2/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T3_E2/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T3_E4/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T3_E4/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../T3_E7/cotxes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../T3_E7/src/main/kotlin/Ex3_7_PassarCotxesXMLJSON.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/T3_E5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/T3_E5.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Ex3_5_PassarRutesObjJSON.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Ex3_5_PassarRutesObjJSON.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T3_E6/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T3_E6/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T3_E6/T3_E6.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../T3_E6/T3_E6.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +46,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/denis/Desktop/DAM2/ACCESO A DATOS/Tema3/T3_E5",
+    "last_opened_file_path": "/home/INFORMATICA/alu10499738/Escriptori/EjerciciosDAM2/ACCESO A DATOS/Tema3/T3_E5",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -80,6 +70,8 @@
       <option name="presentableId" value="Default" />
       <updated>1696272448188</updated>
       <workItem from="1696272449204" duration="244000" />
+      <workItem from="1696352383191" duration="60000" />
+      <workItem from="1696353606755" duration="79000" />
     </task>
     <servers />
   </component>
