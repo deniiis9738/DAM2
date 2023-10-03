@@ -35,6 +35,9 @@ class MainActivity : ComponentActivity() {
                         composable("Play") {
                             Play()
                         }
+                        composable("About") {
+                            About()
+                        }
                     }
                 }
             }

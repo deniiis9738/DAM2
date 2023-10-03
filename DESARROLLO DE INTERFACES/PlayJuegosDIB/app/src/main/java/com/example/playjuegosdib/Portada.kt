@@ -80,7 +80,7 @@ fun MainMenu(navController: NavController) {
                             )
                         }
 
-                        Button(onClick = { /*TODO*/ }, modifier = Modifier
+                        Button(onClick = { navController.navigate("About") }, modifier = Modifier
                             .width(200.dp)
                             .padding(end = 25.dp)) {
                             Text(
@@ -134,7 +134,7 @@ fun MainMenu(navController: NavController) {
                     )
                 }
 
-                Button(onClick = { /*TODO*/ }, modifier = Modifier.width(200.dp)) {
+                Button(onClick = { navController.navigate("About") }, modifier = Modifier.width(200.dp)) {
                     Text(
                         text = stringResource(id = R.string.about),
                         textAlign = TextAlign.Center,

@@ -1,6 +1,7 @@
 package com.example.playjuegosdib
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -14,7 +15,10 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
@@ -29,6 +33,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -76,7 +81,7 @@ fun MenuNewPlayer() {
                     Modifier.weight(pesoH))},
                 colors = TextFieldDefaults.textFieldColors(
                     containerColor = Pink50,
-                    focusedIndicatorColor = Lime800
+                    focusedIndicatorColor = Color.Green
                 ),
                 shape = RoundedCornerShape(topStart = 10.dp, topEnd = 20.dp))
             Spacer(modifier = Modifier.width(10.dp))
@@ -92,7 +97,7 @@ fun MenuNewPlayer() {
                     Modifier.weight(pesoH))},
                 colors = TextFieldDefaults.textFieldColors(
                     containerColor = Pink50,
-                    focusedIndicatorColor = Lime800
+                    focusedIndicatorColor = Color.Green
                 ),
                 shape = RoundedCornerShape(topStart = 10.dp, topEnd = 20.dp))
             Spacer(modifier = Modifier.width(10.dp))
@@ -114,7 +119,7 @@ fun MenuNewPlayer() {
                     Modifier.weight(pesoH))},
                 colors = TextFieldDefaults.textFieldColors(
                     containerColor = Pink50,
-                    focusedIndicatorColor = Lime800
+                    focusedIndicatorColor = Color.Green
                 ),
                 shape = RoundedCornerShape(topStart = 10.dp, topEnd = 20.dp))
             Spacer(modifier = Modifier.width(10.dp))
@@ -154,12 +159,7 @@ fun MenuNewPlayer() {
                     .size(60.dp)
                     .weight(pesoV)
             )
-            TextField(value = "Teléfono", onValueChange = {},
-                colors = TextFieldDefaults.textFieldColors(
-                    containerColor = Pink50,
-                    focusedIndicatorColor = Lime800
-                ),
-                shape = RoundedCornerShape(topStart = 10.dp, topEnd = 20.dp))
+            MyDropDownMenu()
             Spacer(modifier = Modifier.width(10.dp))
         }
         Spacer(modifier = Modifier.size(10.dp))
@@ -176,7 +176,7 @@ fun MenuNewPlayer() {
                     Modifier.weight(pesoH))},
                 colors = TextFieldDefaults.textFieldColors(
                     containerColor = Pink50,
-                    focusedIndicatorColor = Lime800
+                    focusedIndicatorColor = Color.Green
                 ),
                 shape = RoundedCornerShape(topStart = 10.dp, topEnd = 20.dp))
             Spacer(modifier = Modifier.width(10.dp))
@@ -193,6 +193,48 @@ fun MenuNewPlayer() {
                 text = stringResource(id = R.string.new_player),
                 textAlign = TextAlign.Center,
             )
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun MyDropDownMenu() {
+    var selectedText by remember { mutableStateOf("") }
+    var expanded by remember { mutableStateOf(false) }
+    val numbers = listOf("666666666", "123456879", "987654321", "153426879")
+
+    var textFieldText by remember { mutableStateOf("Teléfono") }
+
+    OutlinedTextField(
+        value = textFieldText,
+        onValueChange = { selectedText = it },
+        enabled = false,
+        colors = TextFieldDefaults.outlinedTextFieldColors(
+            focusedBorderColor = Color.Green,
+            containerColor = Pink50,
+        ),
+        textStyle = TextStyle(color = Color.Black),
+        modifier = Modifier
+            .clickable { expanded = true },
+        shape = RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp)
+    )
+
+    if (expanded) {
+        DropdownMenu(
+            expanded = expanded,
+            onDismissRequest = { expanded = false },
+        ) {
+            numbers.forEach { number ->
+                DropdownMenuItem(
+                    text = { Text(text = number) },
+                    onClick = {
+                        selectedText = number
+                        textFieldText = number
+                        expanded = false
+                    },
+                )
+            }
         }
     }
 }
