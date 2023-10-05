@@ -1,4 +1,4 @@
-package com.example.playjuegosdib
+package com.example.coffeshops
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -9,13 +9,13 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.playjuegosdib.ui.theme.PlayJuegosDIBTheme
+import com.example.coffeshops.ui.theme.CoffeShopsTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            PlayJuegosDIBTheme {
+            CoffeShopsTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
@@ -23,19 +23,7 @@ class MainActivity : ComponentActivity() {
                     val navController = rememberNavController()
                     NavHost(navController = navController, startDestination = "Portada") {
                         composable("Portada") {
-                            MainMenu(navController)
-                        }
-                        composable("NewPlayer") {
-                            MenuNewPlayer()
-                        }
-                        composable("Preferences") {
-                            Preferences()
-                        }
-                        composable("Play") {
-                            Play()
-                        }
-                        composable("About") {
-                            About()
+                            Portada(navController)
                         }
                     }
                 }
