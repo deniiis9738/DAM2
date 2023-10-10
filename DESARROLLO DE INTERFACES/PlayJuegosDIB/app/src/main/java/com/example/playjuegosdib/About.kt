@@ -75,7 +75,6 @@ fun About() {
                             style = TextStyle(fontSize = 14.sp)
                         )
                     }
-
                 }
             }
         }

@@ -105,7 +105,7 @@ fun MenuNewPlayer() {
         Row {
             Text(text = if (isError2) "Error: Obligatorio" else "*Obligatorio",
                 fontSize = 13.sp,
-                color = if (isError2) Color.Red else Color.Black)
+                color = if (isError2) Color.Red else Color.Black).
             Spacer(modifier = Modifier.width(85.dp))
         }
         Spacer(modifier = Modifier.height(3.dp))

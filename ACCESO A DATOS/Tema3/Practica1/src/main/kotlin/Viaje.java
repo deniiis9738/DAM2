@@ -1,7 +1,14 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Map;
 import java.util.Vector;
+
+import org.json.JSONArray;
+import org.json.JSONTokener;
 import org.json.simple.JSONObject;
 
 public class Viaje implements Serializable {
@@ -49,8 +56,14 @@ public class Viaje implements Serializable {
      */
     public Viaje(JSONObject jsonViaje) {
         super();
-
-
+        this.codviaje = (String) jsonViaje.get("codviaje");
+        this.codprop = (String) jsonViaje.get("codprop");
+        this.origen = (String) jsonViaje.get("origen");
+        this.destino = (String) jsonViaje.get("destino");
+        this.fecha = (String) jsonViaje.get("fecha");
+        this.precio = (Long) jsonViaje.get("precio");
+        this.numplazas = (Long) jsonViaje.get("numplazas");
+        this.pasajeros = new Vector<String>();
     }
 
     /**
@@ -68,10 +81,25 @@ public class Viaje implements Serializable {
      *
      * @return	objeto JSON con los datos del Viaje
      */
-    /*public JSONObject toJSON() {
-        // POR IMPLEMENTAR
+    public JSONObject toJSON() {
+        JSONObject jsonViaje = new JSONObject();
+        jsonViaje.put("codviaje", codviaje);
+        jsonViaje.put("codprop", codprop);
+        jsonViaje.put("origen", origen);
+        jsonViaje.put("destino", destino);
+        jsonViaje.put("fecha", fecha);
+        jsonViaje.put("precio", precio);
+        jsonViaje.put("numplazas", numplazas);
 
-    }*/
+        JSONArray pasajerosArray = new JSONArray();
+
+        for (String pasajero : pasajeros) {
+            pasajerosArray.put(pasajero);
+        }
+        jsonViaje.put("pasajeros", pasajerosArray);
+
+        return jsonViaje;
+    }
 
     /**
      * Indica si quedan plazas libres en el Viaje
