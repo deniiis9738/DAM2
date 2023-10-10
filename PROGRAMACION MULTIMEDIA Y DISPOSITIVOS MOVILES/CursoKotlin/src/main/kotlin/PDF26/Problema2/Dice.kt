@@ -1,6 +1,6 @@
 package PDF26.Problema2
 
-class Dado(value: Int) {
+class Dice() {
     var value = 0
 
     init {
