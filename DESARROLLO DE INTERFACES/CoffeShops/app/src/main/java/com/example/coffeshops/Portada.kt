@@ -1,7 +1,6 @@
 package com.example.coffeshops
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -34,7 +33,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -54,6 +52,7 @@ import com.example.coffeshops.ui.theme.alviaregular
 @Composable
 fun Portada(navController: NavController) {
     var showMenu by remember { mutableStateOf(false) }
+    var selectedItem by remember { mutableStateOf<DataShops?>(null) }
 
     Column(
         modifier = Modifier.fillMaxSize()
@@ -100,12 +99,12 @@ fun Portada(navController: NavController) {
                 }
             }
         )
-        MyCards()
+        MyCards(navController, onItemSelected = {selectedItem = it})
     }
 }
 
 @Composable
-fun MyCards() {
+fun MyCards(navController: NavController, onItemSelected: (DataShops) -> Unit) {
     val dataShops = listOf(
         DataShops(R.drawable.images, "Antico Coffe Greco", "St. Italy, Rome"),
         DataShops(R.drawable.images1, "Coffee Room", "St. Germany, Berlin"),
@@ -125,7 +124,11 @@ fun MyCards() {
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(10.dp),
+                        .padding(10.dp)
+                        .clickable {
+                            onItemSelected(data)
+                            navController.navigate("CommentCoffee/${data.title}")
+                        },
                     colors = CardDefaults.cardColors(Pink100)
                 ) {
                     Image(

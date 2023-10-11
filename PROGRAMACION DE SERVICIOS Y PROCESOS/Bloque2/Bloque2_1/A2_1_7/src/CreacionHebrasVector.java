@@ -1,5 +1,3 @@
-import java.lang.reflect.Array;
-
 public class CreacionHebrasVector {
 
     public static void main(String[] args) {

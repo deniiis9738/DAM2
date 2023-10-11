@@ -2,20 +2,25 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/A2_1_1/A2_1_1.iml" filepath="$PROJECT_DIR$/A2_1_1/A2_1_1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/A2_1_2/A2_1_2.iml" filepath="$PROJECT_DIR$/A2_1_2/A2_1_2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/A2_1_3/A2_1_3.iml" filepath="$PROJECT_DIR$/A2_1_3/A2_1_3.iml" />
-      <module fileurl="file://$PROJECT_DIR$/A2_1_4/A2_1_4.iml" filepath="$PROJECT_DIR$/A2_1_4/A2_1_4.iml" />
-      <module fileurl="file://$PROJECT_DIR$/A2_1_5/A2_1_5.iml" filepath="$PROJECT_DIR$/A2_1_5/A2_1_5.iml" />
-      <module fileurl="file://$PROJECT_DIR$/A2_1_6/A2_1_6.iml" filepath="$PROJECT_DIR$/A2_1_6/A2_1_6.iml" />
-      <module fileurl="file://$PROJECT_DIR$/A2_1_7/A2_1_7.iml" filepath="$PROJECT_DIR$/A2_1_7/A2_1_7.iml" />
-      <module fileurl="file://$PROJECT_DIR$/A2_2_1/A2_2_1.iml" filepath="$PROJECT_DIR$/A2_2_1/A2_2_1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/A2_2_2/A2_2_2.iml" filepath="$PROJECT_DIR$/A2_2_2/A2_2_2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bloque2_1/A2_1_1/A2_1_1.iml" filepath="$PROJECT_DIR$/Bloque2_1/A2_1_1/A2_1_1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bloque2_1/A2_1_2/A2_1_2.iml" filepath="$PROJECT_DIR$/Bloque2_1/A2_1_2/A2_1_2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bloque2_1/A2_1_3/A2_1_3.iml" filepath="$PROJECT_DIR$/Bloque2_1/A2_1_3/A2_1_3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bloque2_1/A2_1_4/A2_1_4.iml" filepath="$PROJECT_DIR$/Bloque2_1/A2_1_4/A2_1_4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bloque2_1/A2_1_5/A2_1_5.iml" filepath="$PROJECT_DIR$/Bloque2_1/A2_1_5/A2_1_5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bloque2_1/A2_1_6/A2_1_6.iml" filepath="$PROJECT_DIR$/Bloque2_1/A2_1_6/A2_1_6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bloque2_1/A2_1_7/A2_1_7.iml" filepath="$PROJECT_DIR$/Bloque2_1/A2_1_7/A2_1_7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bloque2_2/A2_2_1/A2_2_1.iml" filepath="$PROJECT_DIR$/Bloque2_2/A2_2_1/A2_2_1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bloque2_2/A2_2_2/A2_2_2.iml" filepath="$PROJECT_DIR$/Bloque2_2/A2_2_2/A2_2_2.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Bloque2.iml" filepath="$PROJECT_DIR$/.idea/Bloque2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/C2_1_1/C2_1_1.iml" filepath="$PROJECT_DIR$/C2_1_1/C2_1_1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Join/Join.iml" filepath="$PROJECT_DIR$/Join/Join.iml" />
-      <module fileurl="file://$PROJECT_DIR$/P2_1_1/P2_1_1.iml" filepath="$PROJECT_DIR$/P2_1_1/P2_1_1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/P2_1_2/P2_1_2.iml" filepath="$PROJECT_DIR$/P2_1_2/P2_1_2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bloque2_1/Bloque2_1.iml" filepath="$PROJECT_DIR$/Bloque2_1/Bloque2_1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bloque2_2/Bloque2_2.iml" filepath="$PROJECT_DIR$/Bloque2_2/Bloque2_2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bloque2_1/C2_1_1/C2_1_1.iml" filepath="$PROJECT_DIR$/Bloque2_1/C2_1_1/C2_1_1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bloque2_1/Join/Join.iml" filepath="$PROJECT_DIR$/Bloque2_1/Join/Join.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bloque2_1/P2_1_1/P2_1_1.iml" filepath="$PROJECT_DIR$/Bloque2_1/P2_1_1/P2_1_1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bloque2_1/P2_1_2/P2_1_2.iml" filepath="$PROJECT_DIR$/Bloque2_1/P2_1_2/P2_1_2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bloque2_2/P2_2_1/P2_2_1.iml" filepath="$PROJECT_DIR$/Bloque2_2/P2_2_1/P2_2_1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bloque2_2/P2_2_2/P2_2_2.iml" filepath="$PROJECT_DIR$/Bloque2_2/P2_2_2/P2_2_2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bloque2_2/P2_2_3/P2_2_3.iml" filepath="$PROJECT_DIR$/Bloque2_2/P2_2_3/P2_2_3.iml" />
     </modules>
   </component>
 </project>
