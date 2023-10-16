@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/T3_E1/T3_E1.iml" filepath="$PROJECT_DIR$/T3_E1/T3_E1.iml" />
       <module fileurl="file://$PROJECT_DIR$/T3_E2/T3_E2.iml" filepath="$PROJECT_DIR$/T3_E2/T3_E2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/T3_E8/T3_E8.iml" filepath="$PROJECT_DIR$/T3_E8/T3_E8.iml" />
       <module fileurl="file://$PROJECT_DIR$/T3_Exemples/T3_Exemples.iml" filepath="$PROJECT_DIR$/T3_Exemples/T3_Exemples.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Tema3.iml" filepath="$PROJECT_DIR$/.idea/Tema3.iml" />
     </modules>
