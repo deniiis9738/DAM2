@@ -11,9 +11,9 @@ public class RepartoBloques {
         System.out.println("¿Qué hebra quieres imprimir?");
         int hebraIndicada = input.nextInt();
 
-        int size = (procesos+hebras-1)/hebras;
-        int ini = hebraIndicada*size;
-        int fin = Math.min(procesos,(hebraIndicada+1)*size);
+        int size = (procesos + hebras - 1) / hebras;
+        int ini = hebraIndicada * size;
+        int fin = Math.min(procesos, (hebraIndicada + 1) * size);
 
         for (int i= ini; i < fin; i++){
             System.out.println(i);

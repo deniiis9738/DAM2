@@ -11,7 +11,7 @@ public class RepartoCiclico {
         System.out.print("¿Qué hebra deseas mostrar?: ");
         int nHebra = input.nextInt();
 
-        for (int i = nHebra; i < procesos; i+=hebras) {
+        for (int i = nHebra; i < procesos; i += hebras) {
             System.out.println(i);
         }
     }
