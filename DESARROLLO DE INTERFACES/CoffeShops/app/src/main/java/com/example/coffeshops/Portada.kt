@@ -13,10 +13,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Lock
-import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.outlined.Star
 import androidx.compose.material3.Button
@@ -24,16 +20,11 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Divider
-import androidx.compose.material3.DropdownMenu
-import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableDoubleStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -45,60 +36,15 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.coffeshops.ui.theme.Pink100
-import com.example.coffeshops.ui.theme.Pink300
 import com.example.coffeshops.ui.theme.alviaregular
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Portada(navController: NavController) {
-    var showMenu by remember { mutableStateOf(false) }
     var selectedItem by remember { mutableStateOf<DataShops?>(null) }
 
     Column(
         modifier = Modifier.fillMaxSize()
     ) {
-        TopAppBar(
-            title = { Text(text = "Coffee") },
-            modifier = Modifier
-                .fillMaxWidth(),
-            navigationIcon = {
-                IconButton(
-                    onClick = { /*TODO*/ },
-                ) {
-                    Icon(
-                        imageVector = Icons.Filled.Menu,
-                        contentDescription = "Menu",
-                    )
-                }
-            },
-            colors = TopAppBarDefaults.smallTopAppBarColors(Pink300),
-            actions = {
-                IconButton(
-                    onClick = { showMenu = !showMenu },
-                ) {
-                    Icon(
-                        imageVector = Icons.Filled.MoreVert,
-                        contentDescription = "MoreVert",
-                    )
-                }
-                DropdownMenu(
-                    expanded = showMenu,
-                    onDismissRequest = { showMenu = false },
-                    Modifier.width(150.dp)
-                ) {
-                    DropdownMenuItem(
-                        onClick = { showMenu },
-                        text = { Text(text = "Compartir") },
-                        leadingIcon = { Icon(imageVector = Icons.Filled.Share, contentDescription = "Compartir") }
-                    )
-                    DropdownMenuItem(
-                        onClick = { showMenu },
-                        text = { Text(text = "Álbum") },
-                        leadingIcon = { Icon(imageVector = Icons.Filled.Lock, contentDescription = "Álbum") }
-                    )
-                }
-            }
-        )
         MyCards(navController, onItemSelected = {selectedItem = it})
     }
 }
@@ -183,7 +129,7 @@ fun RatingBar(
     starsColor: Color = Color.Red,
     onRatingChanged: (Double) -> Unit
 ) {
-    var estadoRating by remember { mutableStateOf(rating) }
+    var estadoRating by remember { mutableDoubleStateOf(rating) }
 
     Row(
         modifier = modifier,
