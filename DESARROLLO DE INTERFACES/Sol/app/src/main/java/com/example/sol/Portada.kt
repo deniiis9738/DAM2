@@ -1,6 +1,7 @@
 package com.example.sol
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -22,13 +23,14 @@ import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -38,17 +40,21 @@ import com.example.sol.ui.theme.Purple80
 
 @Composable
 fun Portada(navController: NavController) {
-    var selectedItem by remember { mutableStateOf<SunCardsClass?>(null) }
+    val snackbarHostState = remember { SnackbarHostState() }
 
     Column(
         modifier = Modifier.fillMaxSize()
     ) {
-        MyCards(onItemSelected = {selectedItem = it})
+        MyCards(snackbarHostState)
+        SnackbarHost(
+            hostState = snackbarHostState,
+            modifier = Modifier.padding(16.dp)
+        )
     }
 }
 
 @Composable
-fun MyCards(onItemSelected: (SunCardsClass) -> Unit) {
+fun MyCards(snackbarHostState: SnackbarHostState) {
     val dataSun = listOf(
         SunCardsClass(R.drawable.corona_solar, "Corona solar"),
         SunCardsClass(R.drawable.erupcionsolar, "Erupcion solar"),
@@ -65,11 +71,15 @@ fun MyCards(onItemSelected: (SunCardsClass) -> Unit) {
             content = {
                 items(dataSun) { data ->
                     var isMenuExpanded by remember { mutableStateOf(false) }
+                    var snackbarText by remember { mutableStateOf("") }
 
                     Card(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(10.dp),
+                            .padding(10.dp)
+                            .clickable {
+                                snackbarText = data.text
+                            },
                         colors = CardDefaults.cardColors(Purple80)
                     ) {
                         Image(

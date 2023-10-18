@@ -59,7 +59,7 @@ class CuentaIncrementos {
         numIncrementos++;
     }
 
-    synchronized +long dameNumIncrementos() {
+    synchronized long dameNumIncrementos() {
         return ( numIncrementos );
     }
 }
