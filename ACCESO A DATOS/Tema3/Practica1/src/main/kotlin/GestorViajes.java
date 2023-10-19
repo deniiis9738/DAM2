@@ -11,7 +11,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.HashMap;
-import java.util.Scanner;
 
 public class GestorViajes {
     private static FileWriter os;            // stream para escribir los datos en el fichero
@@ -196,10 +195,9 @@ public class GestorViajes {
     public JSONObject anulaReserva (String codviaje, String codcli){
         for (String cod : mapa.keySet()) {
             if (mapa.get(cod).getCodviaje().equals(codviaje)) {
-                if (mapa.get(cod).quedanPlazas()) {
-                    mapa.get(cod).borraPasajero(codcli);
-                    return mapa.get(cod).toJSON();
-                }
+                mapa.get(cod).borraPasajero(codcli);
+                return mapa.get(cod).toJSON();
+
             }
         }
         return null;
@@ -236,9 +234,13 @@ public class GestorViajes {
      * @return JSONObject con los datos del viaje ofertado
      */
     public JSONObject ofertaViaje (String codcli, String origen, String destino, String fecha,long precio, long numplazas){
-        Viaje nuevoViaje = new Viaje(codcli, origen, destino, fecha, precio, numplazas);
-        mapa.put(nuevoViaje.getCodprop(), nuevoViaje);
-        return nuevoViaje.toJSON();
+        if (es_fecha_valida(fecha)) {
+            Viaje nuevoViaje = new Viaje(codcli, origen, destino, fecha, precio, numplazas);
+            mapa.put(nuevoViaje.getCodprop(), nuevoViaje);
+            return nuevoViaje.toJSON();
+        } else {
+            return null;
+        }
     }
 
     /**
@@ -246,8 +248,11 @@ public class GestorViajes {
      * @param codprop
      */
     public void borrarViaje (String codprop) {
-        if (mapa.get(codprop).getCodprop().equals(codprop)) {
-            mapa.remove(codprop);
+        for (String cod : mapa.keySet()) {
+            if (mapa.get(cod).getCodprop().equals(codprop)) {
+                mapa.remove(cod);
+                break;
+            }
         }
     }
 }

@@ -1,14 +1,9 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Map;
 import java.util.Vector;
 
 import org.json.JSONArray;
-import org.json.JSONTokener;
 import org.json.simple.JSONObject;
 
 public class Viaje implements Serializable {
