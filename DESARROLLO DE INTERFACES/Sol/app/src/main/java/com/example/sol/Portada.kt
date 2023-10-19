@@ -23,8 +23,6 @@ import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.SnackbarHost
-import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -40,21 +38,16 @@ import com.example.sol.ui.theme.Purple80
 
 @Composable
 fun Portada(navController: NavController) {
-    val snackbarHostState = remember { SnackbarHostState() }
-
     Column(
         modifier = Modifier.fillMaxSize()
     ) {
-        MyCards(snackbarHostState)
-        SnackbarHost(
-            hostState = snackbarHostState,
-            modifier = Modifier.padding(16.dp)
-        )
+        MyCards()
+
     }
 }
 
 @Composable
-fun MyCards(snackbarHostState: SnackbarHostState) {
+fun MyCards() {
     val dataSun = listOf(
         SunCardsClass(R.drawable.corona_solar, "Corona solar"),
         SunCardsClass(R.drawable.erupcionsolar, "Erupcion solar"),

@@ -15,12 +15,17 @@
       <jdbc-url>jdbc:mysql://89.36.214.106:3306/factura</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="identifier.sqlite" uuid="3d733604-c5ba-4d4a-9940-a32ef0a15147">
+    <data-source source="LOCAL" name="proveta" uuid="a73a54c0-3fde-46dc-83e5-fd751b9051d4">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:identifier.sqlite</jdbc-url>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/proveta.sqlite</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.43.0/org/xerial/sqlite-jdbc/3.43.0.0/sqlite-jdbc-3.43.0.0.jar</url>
+        </library>
+      </libraries>
     </data-source>
   </component>
 </project>
