@@ -12,20 +12,24 @@ fun main() {
 
         fun showDice() {
             for (element in array) {
-                println("$element")
+                print("$element ")
             }
-            println()
         }
 
         fun greater(): Int {
             var bigger = array[0]
 
-            for (i in array.toString()) {
-                if (array[i.code] > bigger) {
-                    bigger = array[i.code]
+            for (i in array.indices) {
+                if (array[i] > bigger) {
+                    bigger = array[i]
                 }
             }
             return bigger
         }
     }
+
+    dice.generate()
+    dice.showDice()
+    println()
+    println(dice.greater())
 }

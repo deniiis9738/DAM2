@@ -1,4 +1,4 @@
-public class Reducciones {
+public class SinReducciones {
     public static void main(String args[]) {
         int numHebras;
         double vectorNumeros[] = new double[10000000];
@@ -11,12 +11,12 @@ public class Reducciones {
         }
 
         numHebras = 4;
-        Acumula a = new Acumula();
-        MiHebra v[] = new MiHebra[numHebras];
+        AcumulaSin a = new AcumulaSin();
+        MiHebraSin v[] = new MiHebraSin[numHebras];
         t1 = System.nanoTime();
 
         for (int i = 0; i < numHebras; i++) {
-            v[i] = new MiHebra(i, numHebras, vectorNumeros, a);
+            v[i] = new MiHebraSin(i, numHebras, vectorNumeros, a);
             v[i].start();
         }
 
@@ -36,12 +36,12 @@ public class Reducciones {
     }
 }
 
-class MiHebra extends Thread {
+class MiHebraSin extends Thread {
     int miId, numHebras;
     double vector [ ];
-    Acumula a;
+    AcumulaSin a;
 
-    public MiHebra ( int miId, int numHebras, double vector [ ], Acumula a ) {
+    public MiHebraSin ( int miId, int numHebras, double vector [ ], AcumulaSin a ) {
         this.miId = miId;
         this.numHebras = numHebras;
         this.vector = vector;
@@ -49,15 +49,13 @@ class MiHebra extends Thread {
     }
 
     public void run () {
-        double sumaTotal = 0;
         for ( int i = miId; i < vector.length; i += numHebras ) {
-            sumaTotal += ( vector [ i ] );
+            a.acumulaValor ( vector [ i ] );
         }
-        a.acumulaValor(sumaTotal);
     }
 }
 
-class Acumula {
+class AcumulaSin {
     double suma = 0.0;
 
     synchronized void acumulaValor ( double valor ) {
