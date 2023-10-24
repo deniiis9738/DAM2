@@ -17,7 +17,7 @@ private fun main() {
 }
 
 private fun createTable() {
-    val sentSQL = "CREATE TABLE USUARIOS(" +
+    val sentSQL = "CREATE TABLE IF NOT EXISTS USUARIOS(" +
             "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
             "nombre TEXT, " +
             "user TEXT, " +

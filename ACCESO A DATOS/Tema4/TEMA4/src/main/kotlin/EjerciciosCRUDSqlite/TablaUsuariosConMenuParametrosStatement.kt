@@ -1,64 +1,76 @@
-package EjerciciosCRUDSqlite
-
 import java.sql.DriverManager
+import java.sql.Statement
 import java.util.*
 import kotlin.system.exitProcess
 
-val input = Scanner(System.`in`)
+private val input = Scanner(System.`in`)
 private val url = "jdbc:sqlite:proveta.sqlite"
 private val con = DriverManager.getConnection(url)
-private val st = con.createStatement()
+private val st: Statement = con.createStatement()
 
 fun main() {
     menu()
 
-    st.close();
+    st.close()
     con.close()
 }
 
 private fun createTable() {
-    val sentSQL = "CREATE TABLE USUARIOS(" +
+    val sentSQL = "CREATE TABLE IF NOT EXISTS USUARIOS(" +
             "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
             "nombre TEXT, " +
-            "user TEXT, " +
+            "user TEXT UNIQUE, " +
             "password TEXT, " +
             "tlf TEXT, " +
-            "email TEXT " +
+            "email TEXT UNIQUE" +
             ")"
 
     try {
         st.executeUpdate(sentSQL)
     } catch (e: Exception) {
-        println("La tabla ya existe")
+        println("No se ha podido crear la tabla o tabla ya existe")
     }
 }
 
-private fun insertData() {
+private fun insertData(nombre: String, usuario: String, contrasenia: String, tlf: String, email: String) {
     try {
-        st.executeUpdate("INSERT INTO USUARIOS (nombre, user, password, tlf, email) VALUES ('Geroge', 'gerogepop', 'gatoensucasa', '123456789', 'gerogepop@gmail.com')")
-        st.executeUpdate("INSERT INTO USUARIOS (nombre, user, password, tlf, email) VALUES ('Carlos', 'carloscharly', 'f1loco', '456789123', 'carloscharly@gmail.com')")
-        st.executeUpdate("INSERT INTO USUARIOS (nombre, user, password, tlf, email) VALUES ('Jose', 'josevi', 'mariotoxiwonder', '789123456', 'josevi@gmail.com')")
+        val insertUsuarioSQL = "INSERT INTO USUARIOS (nombre, user, password, tlf, email) " +
+                "VALUES ('$nombre', '$usuario', '$contrasenia', '$tlf', '$email')"
+
+        st.executeUpdate(insertUsuarioSQL)
 
         selectData()
         println()
     } catch (e: Exception) {
-        println("No se han podido introducir los datos")
+        println("No se han podido introducir los datos o usuario existente")
         println()
     }
 }
 
+private fun menuInsertData() {
+    println()
+    print("INTRODUCE UN NOMBRE: ")
+    val nombre = input.next()
+    print("INTRODUCE UN USUARIO: ")
+    val usuario = input.next()
+    print("INTRODUCE UNA CONTRASEÑA: ")
+    val contrasenia = input.next()
+    print("INTRODUCE UN TELÉFONO: ")
+    val tlf = input.next()
+    print("INTRODUCE UN EMAIL: ")
+    val email = input.next()
+    println()
+
+    insertData(nombre, usuario, contrasenia, tlf, email)
+}
+
 private fun updateData(id: Int, nombre: String, password: String) {
     try {
-        val updateNombreSQL = "UPDATE USUARIOS SET nombre = ? WHERE id = ?"
-        val updatePasswordSQL = "UPDATE USUARIOS SET password = ? WHERE id = ?"
+        val updateNombreSQL = "UPDATE USUARIOS SET nombre = '$nombre' WHERE id = $id"
+        val updatePasswordSQL = "UPDATE USUARIOS SET password = '$password' WHERE id = $id"
 
-        var psNombre = con.prepareStatement(updateNombreSQL)
-        var psPassword = con.prepareStatement(updatePasswordSQL)
-        psNombre.setString(1, nombre);
-        psNombre.setInt(2, id);
-
-        psPassword.setString(1, password);
-        psPassword.setInt(2, id);
+        st.executeUpdate(updateNombreSQL)
+        st.executeUpdate(updatePasswordSQL)
 
         selectData()
         println()
@@ -70,20 +82,29 @@ private fun updateData(id: Int, nombre: String, password: String) {
 
 private fun menuUpdateData() {
     println()
-    print("INTRODUCE EL ID QUE QUIERES MODIFICAR: .")
-    val id = input.next()
-    print("INTRODUCE EL NUEVO NOMBRE: .")
-    val nuevoNombre =  input.next()
-    print("INTRODUCE LA NUEVA CONTRASEÑA: .")
+    print("INTRODUCE EL ID QUE QUIERES MODIFICAR: ")
+    val id = input.nextInt()
+    print("INTRODUCE EL NUEVO NOMBRE: ")
+    val nuevoNombre = input.next()
+    print("INTRODUCE LA NUEVA CONTRASEÑA: ")
     val nuevaContrasenia = input.next()
     println()
 
-    
+    updateData(id, nuevoNombre, nuevaContrasenia)
 }
 
-private fun deleteData() {
+private fun deleteData(id: Int) {
     try {
-        st.executeUpdate("DELETE FROM USUARIOS WHERE nombre = 'Jose'")
+        val checkId = "SELECT id FROM USUARIOS WHERE id = $id"
+        val resultSet = st.executeQuery(checkId)
+
+        if (resultSet.next()) {
+            val deleteUsuarioSQL = "DELETE FROM USUARIOS WHERE id = $id"
+            st.executeUpdate(deleteUsuarioSQL)
+        } else {
+            println("No existe el usuario mencionado.")
+            println()
+        }
 
         selectData()
         println()
@@ -91,6 +112,15 @@ private fun deleteData() {
         println("No se han podido borrar los datos")
         println()
     }
+}
+
+private fun menuDeleteData() {
+    println()
+    print("INTRODUCE EL ID QUE QUIERES ELIMINAR: ")
+    val id = input.nextInt()
+    println()
+
+    deleteData(id)
 }
 
 private fun deleteAllData() {
@@ -122,7 +152,7 @@ private fun selectData() {
             println("ID: $id, Nombre: $nombre, Usuario: $user, Contraseña: $password, Teléfono: $tlf, Email: $email")
         }
         println("Hay $contador registros")
-    } catch(e: Exception) {
+    } catch (e: Exception) {
         println("No se ha podido mostrar los datos")
         println()
     }
@@ -142,11 +172,11 @@ private fun menu() {
         print("Introduce la opción que deseas realizar: ")
         val opcion = input.nextInt()
 
-        when(opcion) {
+        when (opcion) {
             0 -> exitProcess(0)
-            1 -> insertData()
+            1 -> menuInsertData()
             2 -> menuUpdateData()
-            3 -> deleteData()
+            3 -> menuDeleteData()
             4 -> deleteAllData()
             5 -> createTable()
             6 -> selectData()
