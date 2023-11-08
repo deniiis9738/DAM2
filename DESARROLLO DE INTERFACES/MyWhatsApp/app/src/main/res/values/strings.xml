@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MyWhatsApp</string>
+    <string name="pause">M 6 5 L 6 19 L 10 19 L 10 5 Z M 14 19 L 18 19 L 18 5 L 14 5 Z</string>
+    <string name="boca_bien">M 30,65 Q 50,85 70,65 M 25,30 Q 35,30 45,30 M 55,30 Q 65,30 75,30</string>
+    <string name="boca_mal">M 30,75 Q 50,55 70,75 M 25,30 Q 35,47 45,30 M 55,30 Q 65,47 75,30</string>
+    <string name="play">M 8 5.14 L 8 19.14 L 11.456 16.661 L 11.456 7.339 Z M 11.245 16.795 L 19 12.14 L 19 12.14 L 11.245 7.205 Z</string>
 </resources>

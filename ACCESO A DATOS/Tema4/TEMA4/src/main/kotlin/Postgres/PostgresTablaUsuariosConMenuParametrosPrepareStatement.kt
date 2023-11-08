@@ -70,6 +70,7 @@ private fun menuInsertData() {
     insertData(nombre, usuario, contrasenia, tlf, email)
 }
 
+
 private fun updateData(id: Int, nombre: String, password: String) {
     try {
         val updateSQL = "UPDATE USUARIOS SET nombre = ?, password = ? WHERE id = ?"

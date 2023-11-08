@@ -85,12 +85,8 @@ fun Chats() {
                         )
                         Spacer(modifier = Modifier.width(20.dp))
                         Column(
-                            modifier = Modifier.pointerInput(Unit) {
-                            detectTapGestures { offset ->
-                                if (offset != Offset(0f, 0f)) {
-                                    expanded = true
-                                }
-                            }
+                            modifier = Modifier.pointerInput(true) {
+                                detectTapGestures(onLongPress = { expanded = true })
                         }
                         ) {
                             Spacer(modifier = Modifier.height(25.dp))

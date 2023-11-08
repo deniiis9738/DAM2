@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:width="350dp" android:height="350dp" android:viewportWidth="100" android:viewportHeight="100" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:name="cara" android:fillColor="#ffff00" android:pathData="M 50,50 m -48,0 a 48,48 0 1,0 96,0 a 48,48 0 1,0 -96,0"/>
+    <path android:name="ojo_izquierdo" android:fillColor="#4d4d4d" android:pathData="M 25,30 Q 35,30 45,30"/>
+    <path android:name="ojo_derecho" android:fillColor="#4d4d4d" android:pathData="M 55,30 Q 65,30 75,30"/>
+    <path android:name="boca_feliz" android:strokeColor="#4d4d4d" android:pathData="M 30,65 Q 50,85 70,65"/>
+</vector>
