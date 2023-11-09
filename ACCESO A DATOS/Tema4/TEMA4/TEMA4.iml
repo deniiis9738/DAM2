@@ -14,25 +14,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../../RecursosDAM2/ACCESO A DATOS/Drivers/Bases de datos/postgresql-42.2.24.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../../RecursosDAM2/ACCESO A DATOS/Drivers/Bases de datos/sqlite-jdbc-3.36.0.1.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../../RecursosDAM2/ACCESO A DATOS/Drivers/Bases de datos/mysql-connector-java-8.0.26.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../../RescursosDAM2/ACCESO A DATOS/postgresql-42.6.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
