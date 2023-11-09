@@ -1,4 +1,4 @@
-package com.example.examen
+package com.example.placesintheworld
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -12,6 +12,7 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
@@ -19,10 +20,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -33,21 +30,21 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.examen.ui.theme.ExamenTheme
-import com.example.examen.ui.theme.PrimaryColor
-import com.example.examen.ui.theme.SecondaryColor
+import com.example.placesintheworld.ui.theme.PlacesInTheWorldTheme
+import com.example.placesintheworld.ui.theme.PrimaryColor
+import com.example.placesintheworld.ui.theme.SecondaryColor
 
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            ExamenTheme {
+            PlacesInTheWorldTheme {
                 val navController = rememberNavController()
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
                     topBar = { TopBar() },
-                    floatingActionButton = { FloatingActionButton(navController = navController) },
+                    floatingActionButton = { FAB(navController = navController) },
                 ) {
                     Box(
                         modifier = Modifier
@@ -71,7 +68,6 @@ class MainActivity : ComponentActivity() {
                             ) { navBackStackEntry ->
                                 val nombrePlaza = navBackStackEntry.arguments?.getString("nombrePlaza") ?: ""
                                 val imagenPlaza = navBackStackEntry.arguments?.getInt("imagenPlaza") ?: 0
-
                                 Plaza(nombrePlaza, imagenPlaza)
                             }
                         }
@@ -85,8 +81,6 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopBar() {
-    var showMenu by remember { mutableStateOf(false) }
-
     TopAppBar(
         title = { Text(
             text = "PlacesIntheWorld",
@@ -108,7 +102,7 @@ fun TopBar() {
         colors = TopAppBarDefaults.smallTopAppBarColors(PrimaryColor),
         actions = {
             IconButton(
-                onClick = { showMenu = !showMenu },
+                onClick = { /*TODO*/ }
             ) {
                 Icon(
                     imageVector = Icons.Filled.MoreVert,
@@ -121,14 +115,17 @@ fun TopBar() {
 }
 
 @Composable
-fun FloatingActionButton(navController: NavController) {
+fun FAB(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(end = 16.dp, bottom = 16.dp),
+            .padding(
+                end = 10.dp,
+                bottom = 10.dp
+            ),
         contentAlignment = Alignment.BottomEnd
     ) {
-        androidx.compose.material3.FloatingActionButton(
+        FloatingActionButton(
             onClick = { navController.navigate("Portada") },
             containerColor = SecondaryColor
         ) {

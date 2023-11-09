@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="classes.ComarcaEntity">
+        <table name="comarca" schema="public" catalog="geo_ad"/>
+        <attributes>
+            <id name="nomC">
+                <column name="nom_c"/>
+            </id>
+            <basic name="provincia">
+                <column name="provincia"/>
+            </basic>
+            <one-to-many name="poblaciosByNomC" mapped-by="comarcaByNomC" target-entity="classes.PoblacioEntity"/>
+        </attributes>
+    </entity>
+</entity-mappings>

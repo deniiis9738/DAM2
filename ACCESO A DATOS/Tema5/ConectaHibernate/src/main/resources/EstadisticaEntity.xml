@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="classes.EstadisticaEntity">
+        <table name="estadistica" schema="public" catalog="geo_ad"/>
+        <attributes>
+            <basic name="nomC">
+                <column name="nom_c"/>
+            </basic>
+            <basic name="numP">
+                <column name="num_p"/>
+            </basic>
+            <basic name="pobl">
+                <column name="pobl"/>
+            </basic>
+            <basic name="altMitjana">
+                <column name="alt_mitjana"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="classes.InstitutEntity">
+        <table name="institut" schema="public" catalog="geo_ad"/>
+        <attributes>
+            <id name="codi">
+                <column name="codi"/>
+            </id>
+            <basic name="nom">
+                <column name="nom"/>
+            </basic>
+            <basic name="adreca">
+                <column name="adreca"/>
+            </basic>
+            <basic name="numero">
+                <column name="numero"/>
+            </basic>
+            <basic name="codpostal">
+                <column name="codpostal"/>
+            </basic>
+            <basic name="codM">
+                <column name="cod_m"/>
+            </basic>
+            <many-to-one name="poblacioByCodM" optional="true" target-entity="classes.PoblacioEntity">
+                <join-column name="cod_m" nullable="false" referenced-column-name="cod_m"/>
+            </many-to-one>
+        </attributes>
+    </entity>
+</entity-mappings>

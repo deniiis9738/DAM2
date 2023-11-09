@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="classes.PoblacioEntity">
+        <table name="poblacio" schema="public" catalog="geo_ad"/>
+        <attributes>
+            <id name="codM">
+                <column name="cod_m"/>
+            </id>
+            <basic name="nom">
+                <column name="nom"/>
+            </basic>
+            <basic name="poblacio">
+                <column name="poblacio"/>
+            </basic>
+            <basic name="extensio">
+                <column name="extensio"/>
+            </basic>
+            <basic name="altura">
+                <column name="altura"/>
+            </basic>
+            <basic name="longitud">
+                <column name="longitud"/>
+            </basic>
+            <basic name="latitud">
+                <column name="latitud"/>
+            </basic>
+            <basic name="llengua">
+                <column name="llengua"/>
+            </basic>
+            <basic name="nomC">
+                <column name="nom_c"/>
+            </basic>
+            <many-to-one name="comarcaByNomC" optional="true" target-entity="classes.ComarcaEntity">
+                <join-column name="nom_c" nullable="false" referenced-column-name="nom_c"/>
+            </many-to-one>
+            <one-to-many name="institutsByCodM" mapped-by="poblacioByCodM" target-entity="classes.InstitutEntity"/>
+        </attributes>
+    </entity>
+</entity-mappings>
