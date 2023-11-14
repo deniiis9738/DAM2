@@ -1,0 +1,28 @@
+img{
+   min-width: 104vh;
+   max-height: 20vh;
+   padding: 100dp;
+}
+
+h1{
+    text-align: center;
+    color: blue;
+}
+
+.centered {
+    text-align: center;
+
+}
+
+p {
+    background-color: lightgreen;
+    margin: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}

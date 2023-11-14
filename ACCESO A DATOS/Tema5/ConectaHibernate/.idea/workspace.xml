@@ -5,23 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4ccbd4c4-5e92-4a89-b46c-463b415cfd1c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/classes/ComarcaEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/classes/InstitutEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/classes/PoblacioEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ComarcaEntity.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Estadistica2Entity.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/EstadisticaEntity.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/InstitutEntity.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/PoblacioEntity.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Examen/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Examen/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Examen/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Examen/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Examen/app/src/main/java/com/example/examen/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Examen/app/src/main/java/com/example/examen/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Examen/app/src/main/java/com/example/examen/ui/theme/Theme.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Examen/app/src/main/java/com/example/examen/ui/theme/Theme.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Tema3/Practica1/Practica1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Tema3/Practica1/Practica1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/943e8cb5-ae21-4f22-8674-060dcc02a3cc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/943e8cb5-ae21-4f22-8674-060dcc02a3cc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/Login/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/Login/app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/Login/app/src/main/java/com/example/login/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/Login/app/src/main/java/com/example/login/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/Login/app/src/main/java/com/example/login/ui/theme/Color.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/Login/app/src/main/java/com/example/login/ui/theme/Color.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/Login/app/src/main/res/drawable/iescaminas.png" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/Login/app/src/main/res/drawable/iescaminas.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/Login/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/Login/build.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,9 +36,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2XwbLNlJ1MLo62T6sBq86Ev4q9u" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -64,7 +55,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "last_directory_selection": "/home/INFORMATICA/alu10499738/Escriptori/EjerciciosDAM2/ACCESO A DATOS/Tema5/ConectaHibernate/src/main/kotlin",
-    "last_opened_file_path": "/home/INFORMATICA/alu10499738/Escriptori/RecursosDAM2/ACCESO A DATOS/Drivers/Bases de datos/postgresql-42.2.24.jar",
+    "last_opened_file_path": "/home/INFORMATICA/alu10499738/Escriptori/EjerciciosDAM2/ACCESO A DATOS/Tema3/Practica1",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -94,6 +85,7 @@
       <option name="presentableId" value="Default" />
       <updated>1699543032827</updated>
       <workItem from="1699543033824" duration="820000" />
+      <workItem from="1699637490295" duration="122000" />
     </task>
     <servers />
   </component>

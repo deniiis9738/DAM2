@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <img src="coches.jpeg"/>
+
+    <h1>Oferta un nuevo viaje</h1>
+    <form>
+        <table>
+            <tr>
+                <td><p>Cuenta:</p></td>
+                <td>
+                    <input type="radio" id="estandar" name="cuenta" value="estandar" required>
+                    <label for="estandar">Estándar</label>
+                    <input type="radio" id="premium" name="cuenta" value="premium" required>
+                    <label for="premium">Premium</label>
+                </td>
+            </tr>
+            <tr>
+                <td><p>Código de cliente:</p></td>
+                <td>
+                    <input type="text" name="codigo" required>
+                </td>
+            </tr>
+            <tr>
+                <td><p>Origen:</p></td>
+                <td>
+                    <input type="text" name="origen" required maxlength="40">
+                </td>
+                <td><p>Destino:</p></td>
+                <td>
+                    <input type="text" name="destino" required maxlength="40">
+                </td>
+            </tr>
+            <tr>
+                <td><p>Fecha:</p></td>
+                <td>
+                    <input type="date" id="start" name="fecha" value="dd/mm/aaaa" required>
+                </td>
+            </tr>
+            <tr>
+                <td><p>Precio:</p></td>
+                <td>
+                    <input type="number" step="0.05" min= "0"name="precio" required>
+                </td>
+                <td><p>Plazas:</p></td>
+                <td>
+                    <select name="plazas" required>
+                        <option value="una">Una</option>
+                        <option value="dos">Dos</option>
+                        <option value="dos">Tres</option>
+                        <option value="dos">Quatro</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <div class="centered">
+            <button type="submit">Haz la oferta</button>
+        </div>
+    </form>
+</body>
+</html>
