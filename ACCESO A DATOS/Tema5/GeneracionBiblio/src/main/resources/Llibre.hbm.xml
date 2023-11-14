@@ -1,0 +1,10 @@
+<hibernate-mapping>
+    <class name="biblio.Llibre" table="llibre" schema="public" catalog="biblio_gen">
+        <id name="isbn" column="isbn"/>
+        <property name="titol" column="titol"/>
+        <property name="pagines" column="pagines"/>
+        <many-to-one name="editorial" class="biblio.Editorial">
+            <column name="cod_ed" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -50,15 +50,6 @@ class LoginViewModel : ViewModel() {
         return if (_passwordVisibility.value == true) Icons.Filled.Visibility else Icons.Filled.VisibilityOff
     }
 
-    fun viewPassword(): VisualTransformation {
-        if (_passwordVisibility.value == true) {
-            _visual = VisualTransformation.None
-        } else{
-            PasswordVisualTransformation()
-        }
-
-    }
-
     fun changeColor(firstColor: Color, secondColor: Color): Color {
         return if (validateFields()) firstColor else secondColor
     }

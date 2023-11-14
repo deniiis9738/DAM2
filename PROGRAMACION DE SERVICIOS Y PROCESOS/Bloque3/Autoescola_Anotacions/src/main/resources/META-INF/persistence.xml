@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="3.0">
+  <persistence-unit name="default">
+
+      <class>classes.AlumneEntity</class>
+      <class>classes.ExamenEntity</class>
+      <class>classes.PractiquesEntity</class>
+      <class>classes.ProfessorEntity</class>
+      <class>classes.VehicleEntity</class>
+      <properties>
+          <property name="toplink.jdbc.url" value="jdbc:postgresql://89.36.214.106:5432/autoescola"/>
+          <property name="toplink.jdbc.driver" value="org.postgresql.Driver"/>
+          <property name="toplink.jdbc.user" value="autoescola"/>
+          <property name="toplink.jdbc.password" value="autoescola"/>
+          <property name="hibernate.connection.url" value="jdbc:postgresql://89.36.214.106:5432/autoescola"/>
+          <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
+          <property name="hibernate.connection.username" value="autoescola"/>
+          <property name="hibernate.connection.password" value="autoescola"/>
+          <property name="openjpa.ConnectionURL" value="jdbc:postgresql://89.36.214.106:5432/autoescola"/>
+          <property name="openjpa.ConnectionDriverName" value="org.postgresql.Driver"/>
+          <property name="openjpa.ConnectionUserName" value="autoescola"/>
+          <property name="openjpa.ConnectionPassword" value="autoescola"/>
+          <property name="eclipselink.jdbc.url" value="jdbc:postgresql://89.36.214.106:5432/autoescola"/>
+          <property name="eclipselink.jdbc.driver" value="org.postgresql.Driver"/>
+          <property name="eclipselink.jdbc.user" value="autoescola"/>
+          <property name="eclipselink.jdbc.password" value="autoescola"/>
+      </properties>
+  </persistence-unit>
+</persistence>

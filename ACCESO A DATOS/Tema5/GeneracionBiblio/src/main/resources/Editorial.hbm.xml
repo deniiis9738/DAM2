@@ -1,0 +1,14 @@
+<hibernate-mapping>
+    <class name="biblio.Editorial" table="editorial" schema="public" catalog="biblio_gen">
+        <id name="codEd" column="cod_ed"/>
+        <property name="nom" column="nom"/>
+        <property name="web" column="web"/>
+        <set name="llibres" inverse="true">
+            <key>
+                <column name="cod_ed" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="biblio.Llibre"/>
+        </set>
+    </class>
+</hibernate-mapping>
+
