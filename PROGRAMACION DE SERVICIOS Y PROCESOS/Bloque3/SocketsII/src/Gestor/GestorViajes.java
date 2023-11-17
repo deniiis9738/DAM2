@@ -1,5 +1,6 @@
 package Gestor;
 
+import org.json.JSONException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -12,6 +13,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class GestorViajes {
@@ -134,21 +136,37 @@ public class GestorViajes {
      * @param array JSONArray con los datos de los Viajes
      */
     private void rellenaDiccionario(org.json.simple.JSONArray array) {
-        for (Object obj : array) {
-            JSONObject jsonViaje = (JSONObject) obj;
+        try {
+            for (Object obj : array) {
+                JSONObject jsonViaje = (JSONObject) obj;
 
-            String codviaje = (String) jsonViaje.get("codviaje");
-            String codprop = (String) jsonViaje.get("codprop");
-            String origen = (String) jsonViaje.get("origen");
-            String destino = (String) jsonViaje.get("destino");
-            String fecha = (String) jsonViaje.get("fecha");
-            int precio = ((Long) jsonViaje.get("precio")).intValue();
-            int numplazas = ((Long) jsonViaje.get("numplazas")).intValue();
+                String codviaje = (String) jsonViaje.get("codviaje");
+                String codprop = (String) jsonViaje.get("codprop");
+                String origen = (String) jsonViaje.get("origen");
+                String destino = (String) jsonViaje.get("destino");
+                String fecha = (String) jsonViaje.get("fecha");
+                int precio = ((Long) jsonViaje.get("precio")).intValue();
+                int numplazas = ((Long) jsonViaje.get("numplazas")).intValue();
+                JSONArray pasajerosArray = (JSONArray) jsonViaje.get("pasajeros");
 
-            Viaje viaje = new Viaje(codprop, origen, destino, fecha, precio, numplazas);
-            mapa.put(codviaje, viaje);
+                Viaje viaje = new Viaje(codprop, origen, destino, fecha, precio, numplazas);
+
+                if (pasajerosArray != null) {
+                    ArrayList<String> pasajeros = new ArrayList<>();
+                    for (Object pasajeroObj : pasajerosArray) {
+                        pasajeros.add(pasajeroObj.toString());
+                    }
+                    viaje.establecerPasajeros(pasajeros);
+                }
+                mapa.put(codviaje, viaje);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
+
+
+
 
 
     /**
@@ -199,7 +217,6 @@ public class GestorViajes {
             if (mapa.get(cod).getCodviaje().equals(codviaje)) {
                 mapa.get(cod).borraPasajero(codcli);
                 return mapa.get(cod).toJSON();
-
             }
         }
         return null;
@@ -247,14 +264,18 @@ public class GestorViajes {
 
     /**
      * El cliente propietario codprop elimina un Viaje ofertado
+     *
      * @param codprop
+     * @return
      */
-    public void borrarViaje (String codprop) {
+    public JSONObject borrarViaje (String codprop, String codviaje) {
+        Viaje viaje = mapa.get(codviaje);
+
         for (String cod : mapa.keySet()) {
-            if (mapa.get(cod).getCodprop().equals(codprop)) {
+            if (mapa.get(cod).getCodprop().equals(codprop) && mapa.get(cod).getCodviaje().equals(codviaje)) {
                 mapa.remove(cod);
-                break;
             }
         }
+        return viaje.toJSON();
     }
 }

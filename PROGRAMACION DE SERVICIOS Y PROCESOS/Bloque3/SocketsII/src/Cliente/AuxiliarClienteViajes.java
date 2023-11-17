@@ -70,41 +70,62 @@ public class AuxiliarClienteViajes {
     /**
      * Un pasajero reserva un viaje
      *
-     * @param gestorViajes		gestor del viaje
      * @param codcli	codigo del pasajero
      * @return	objeto JSON con los datos del viaje. Vacio si no se ha podido reservar
      */
-    public static void reservarViaje(GestorViajes gestorViajes, String codcli) {
+    public JSONObject reservarViaje(String codcli) {
         System.out.print("Introduce el código del viaje a reservar: ");
         String codviaje = input.next();
         System.out.println();
-        gestorViajes.reservaViaje(codviaje, codcli);
-        gestorViajes.guardaDatos();
+
+        JSONObject consulta = new JSONObject();
+        consulta.put("peticion", 2);
+        consulta.put("codcli", codcli);
+        consulta.put("codviaje", codviaje);
+
+        String respuesta;
+        JSONObject obj = new JSONObject();
+        try {
+            mySocket.sendMessage(consulta.toJSONString());
+            respuesta = mySocket.receiveMessage();
+            obj = (JSONObject) parser.parse(respuesta);
+        } catch (Exception e) { e.printStackTrace(); }
+        return obj;
     }
 
     /**
      * Un pasajero anula una reserva
      *
-     * @param gestorViajes		objeto gestor viajes
      * @param codcli	codigo del cliente
      * @return	objeto JSON con los datos del viaje. Vacio si no se ha podido reservar
      */
-    public static void anulaViaje(GestorViajes gestorViajes, String codcli) {
+    public JSONObject anulaViaje(String codcli) {
         System.out.print("Introduce el código del viaje a anular: ");
         String codviaje = input.next();
         System.out.println();
-        gestorViajes.anulaReserva(codviaje, codcli);
-        gestorViajes.guardaDatos();
+
+        JSONObject consulta = new JSONObject();
+        consulta.put("peticion", 3);
+        consulta.put("codcli", codcli);
+        consulta.put("codviaje", codviaje);
+
+        String respuesta;
+        JSONObject obj = new JSONObject();
+        try {
+            mySocket.sendMessage(consulta.toJSONString());
+            respuesta = mySocket.receiveMessage();
+            obj = (JSONObject) parser.parse(respuesta);
+        } catch (Exception e) { e.printStackTrace(); }
+        return obj;
     }
 
     /**
      * Un cliente oferta un nuevo viaje
      *
-     * @param gestorViajes		objeto gestor viajes
      * @param codcli	codigo del cliente
      * @return	viaje ofertado en formatoJSON. Vacio si no se ha podido ofertar
      */
-    public static void ofertarViaje(GestorViajes gestorViajes, String codcli) {
+    public JSONObject ofertarViaje(String codcli) {
         System.out.print("Introduce el origen del viaje: ");
         String origen = input.next();
         System.out.print("Introduce el destino del viaje: ");
@@ -116,28 +137,62 @@ public class AuxiliarClienteViajes {
         System.out.print("Introduce el número máximo de plazas del viaje: ");
         long numplazas = input.nextLong();
         System.out.println();
-        gestorViajes.ofertaViaje(codcli, origen, destino, fecha, precio, numplazas);
-        gestorViajes.guardaDatos();
+
+        JSONObject consulta = new JSONObject();
+        consulta.put("peticion", 4);
+        consulta.put("codcli", codcli);
+        consulta.put("origen", origen);
+        consulta.put("destino", destino);
+        consulta.put("fecha", fecha);
+        consulta.put("precio", precio);
+        consulta.put("numplazas", numplazas);
+
+        String respuesta;
+        JSONObject obj = new JSONObject();
+        try {
+            mySocket.sendMessage(consulta.toJSONString());
+            respuesta = mySocket.receiveMessage();
+            obj = (JSONObject) parser.parse(respuesta);
+        } catch (Exception e) { e.printStackTrace(); }
+
+        return obj;
     }
 
     /**
      * Un cliente borra una oferta de viaje
      *
-     * @param gestorViajes		gestor del viaje
-     * @param codcli	codigo del pasajero
-     * @return	objeto JSON con los datos del viaje. Vacio si no se ha podido reservar
+     * @param codprop codigo del propietario
+     * @return objeto JSON con los datos del viaje. Vacio si no se ha podido reservar
      */
-    public static void borrarOfertaViaje(GestorViajes gestorViajes, String codcli) {
-        System.out.println();
-        gestorViajes.borrarViaje(codcli);
-        gestorViajes.guardaDatos();
-    }
+    public JSONObject borrarOfertaViaje(String codviaje, String codprop) {
+        JSONObject consulta = new JSONObject();
+        consulta.put("peticion", 5);
+        consulta.put("codviaje", codviaje);
+        consulta.put("codprop", codprop);
+
+        String respuesta;
+        JSONObject obj = new JSONObject();
+        try {
+            mySocket.sendMessage(consulta.toJSONString());
+            respuesta = mySocket.receiveMessage();
+            obj = (JSONObject) parser.parse(respuesta);
+
+        } catch (Exception e) { e.printStackTrace();}
+        return obj;
+    } // end borraViaje
 
     /**
      * Finaliza la conexion con el servidor
      */
     public void cierraSesion( ) {
         // POR IMPLEMENTAR
-        System.exit(0);
+        try {
+            JSONObject consulta = new JSONObject();
+            consulta.put("peticion", 0);
+            mySocket.sendMessage(consulta.toJSONString());
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     } // end done
 } //end class

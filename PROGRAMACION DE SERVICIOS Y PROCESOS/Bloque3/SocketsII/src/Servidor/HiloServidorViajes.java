@@ -44,15 +44,15 @@ class HiloServidorViajes implements Runnable {
                 // Extrae la operación y sus parámetros
                 JSONParser parser = new JSONParser();
                 JSONObject jsonObject = (JSONObject) parser.parse(peticion);
-                operacion = (String) jsonObject.get("peticion");
+                operacion = jsonObject.get("peticion").toString();
                 System.out.println(operacion);
                 switch (operacion) {
-                    case "0":
+                    case "0": {
                         gestor.guardaDatos();
                         done = true;
                         myDataSocket.close();
                         break;
-
+                    }
                     case "1": { // Consulta los viajes con un origen dado
                         JSONArray viajes = gestor.consultaViajes((String) jsonObject.get("origen"));
                         System.out.println(viajes.toJSONString());
@@ -60,22 +60,37 @@ class HiloServidorViajes implements Runnable {
                         break;
                     }
                     case "2": { // Reserva una plaza en un viaje
-                        // ...
-
+                        JSONObject reservaViaje = gestor.reservaViaje(((String) jsonObject.get("codviaje")), ((String) jsonObject.get("codcli")));
+                        System.out.println(reservaViaje.toJSONString());
+                        myDataSocket.sendMessage(reservaViaje.toJSONString());
                         break;
                     }
-                    case "3": { // Pone en venta un articulo
-                        // ...
-
+                    case "3": { // Anular una reserva
+                        JSONObject anulaReserva = gestor.anulaReserva(((String) jsonObject.get("codviaje")), ((String) jsonObject.get("codcli")));
+                        System.out.println(anulaReserva.toJSONString());
+                        myDataSocket.sendMessage(anulaReserva.toJSONString());
                         break;
                     }
                     case "4": { // Oferta un viaje
-                        // ...
-
+                        JSONObject ofertaViaje = gestor.ofertaViaje(((String) jsonObject.get("codcli")), ((String) jsonObject.get("origen")), ((String) jsonObject.get("destino")), ((String) jsonObject.get("fecha")), ((Long) jsonObject.get("precio")), ((Long) jsonObject.get("numplazas")));
+                        System.out.println(ofertaViaje.toJSONString());
+                        myDataSocket.sendMessage(ofertaViaje.toJSONString());
                         break;
                     }
                     case "5": { // Borra un viaje
-                        // ...
+                        try {
+                            JSONObject viaje = gestor.borrarViaje(jsonObject.get("codprop").toString(), jsonObject.get("codviaje").toString());
+                            if (viaje != null) {
+                                System.out.println(viaje);
+                                myDataSocket.sendMessage(viaje.toJSONString());
+                            } else {
+                                JSONObject respuestaError = new JSONObject();
+                                respuestaError.put("error", "La reserva no pudo realizarse.");
+                                myDataSocket.sendMessage(respuestaError.toJSONString());
+                            }
+                        } catch (Exception e) {
+                            System.out.println("Exception en reserva: " + e.getMessage());
+                        }
                         break;
                     }
 

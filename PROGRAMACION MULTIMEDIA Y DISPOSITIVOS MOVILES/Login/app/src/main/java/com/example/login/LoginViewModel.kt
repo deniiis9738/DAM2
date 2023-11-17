@@ -4,18 +4,14 @@ import android.util.Patterns
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.login.ui.theme.EnabledGreen
-import com.example.login.ui.theme.SecondaryGreen
 
-class LoginViewModel : ViewModel() {
+class LoginViewModel: ViewModel() {
     private var _email = MutableLiveData("")
     val email: LiveData<String> = _email
 

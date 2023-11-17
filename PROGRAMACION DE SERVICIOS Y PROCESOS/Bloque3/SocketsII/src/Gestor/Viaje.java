@@ -3,6 +3,7 @@ package Gestor;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Vector;
 
 import org.json.JSONArray;
@@ -154,6 +155,11 @@ public class Viaje implements Serializable {
             return true;
         }
         return false;
+    }
+
+    public void establecerPasajeros(List<String> pasajeros) {
+        this.pasajeros.clear();
+        this.pasajeros.addAll(pasajeros);
     }
 
     public String getCodviaje() {
