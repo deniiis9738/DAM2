@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a3f92e22-9d49-4819-9481-aaa283fdf01b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Producto1/src/main/kotlin/com/example/producto1/Controller/HomeController.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Producto1/src/main/kotlin/com/example/producto1/Producto1Application.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Producto1/src/main/resources/templates/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/.idea/kotlinc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/app/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/app/proguard-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/app/src/androidTest/java/com/example/circle/ExampleInstrumentedTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/app/src/main/java/com/example/circle/MainActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/app/src/main/java/com/example/circle/Portada.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/app/src/main/java/com/example/circle/ui/theme/Color.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/app/src/main/java/com/example/circle/ui/theme/Theme.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/app/src/main/java/com/example/circle/ui/theme/Type.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/app/src/main/res/drawable/ic_launcher_foreground.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/app/src/main/res/mipmap-hdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/app/src/main/res/mipmap-mdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/app/src/main/res/xml/backup_rules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/app/src/main/res/xml/data_extraction_rules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/app/src/test/java/com/example/circle/ExampleUnitTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/Circle/settings.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/Pokedex/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/Pokedex/app/src/main/java/com/example/pokedex/Model/InfoPokemonModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/Pokedex/app/src/main/java/com/example/pokedex/Model/Pokemon.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/Pokedex/app/src/main/java/com/example/pokedex/ViewModel/InfoPokemonViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/CoffeShops/app/src/main/java/com/example/coffeshops/CommentCoffeeView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/CoffeShops/app/src/main/java/com/example/coffeshops/CommentCoffeeView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/CoffeShops/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/CoffeShops/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/PlacesInTheWorld/app/src/main/java/com/example/placesintheworld/Plaza.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/PlacesInTheWorld/app/src/main/java/com/example/placesintheworld/Plaza.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/PlacesInTheWorld/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DESARROLLO DE INTERFACES/PlacesInTheWorld/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/Pokedex/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/Pokedex/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/Pokedex/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/Pokedex/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/Pokedex/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/Pokedex/app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/Pokedex/app/src/main/java/com/example/pokedex/InfoPokemonViewModel.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/Pokedex/app/src/main/java/com/example/pokedex/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/Pokedex/app/src/main/java/com/example/pokedex/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/Pokedex/app/src/main/java/com/example/pokedex/View/InfoPokemonView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PROGRAMACION MULTIMEDIA Y DISPOSITIVOS MOVILES/Pokedex/app/src/main/java/com/example/pokedex/View/InfoPokemonView.kt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2YUvUVBRIsjQaPtdwPxkQgqTKqg" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/INFORMATICA/alu10499738/Escriptori/EjerciciosDAM2/ACCESO A DATOS/Tema5/Hibernate-Anotaciones",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a3f92e22-9d49-4819-9481-aaa283fdf01b" name="Changes" comment="" />
+      <created>1700592988394</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1700592988394</updated>
+      <workItem from="1700592989400" duration="272000" />
+      <workItem from="1700595550409" duration="30000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

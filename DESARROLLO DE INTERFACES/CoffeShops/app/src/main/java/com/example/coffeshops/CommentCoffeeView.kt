@@ -1,5 +1,7 @@
 package com.example.coffeshops
 
+import androidx.compose.animation.scaleIn
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -10,20 +12,25 @@ import androidx.compose.foundation.lazy.staggeredgrid.rememberLazyStaggeredGridS
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.coffeshops.ui.theme.Pink100
 import com.example.coffeshops.ui.theme.alviaregular
 import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CommentCoffeeView(title: String) {
     val rvState = rememberLazyStaggeredGridState()
@@ -34,6 +41,8 @@ fun CommentCoffeeView(title: String) {
         }
     }
     val coroutineScope = rememberCoroutineScope()
+
+    var estadoComentario by remember { mutableStateOf(1f) }
 
     Column {
         Text(
@@ -49,11 +58,16 @@ fun CommentCoffeeView(title: String) {
             modifier = Modifier.weight(2.5f),
             content = {
                 items(comments) { comment ->
+                    var isSelected by remember { mutableStateOf(false) }
                     Card (
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(10.dp),
-                        colors = CardDefaults.cardColors(Pink100)
+                            .padding(10.dp)
+                            .scale(if (isSelected) 0.7f else estadoComentario)
+                            .clickable {
+                                isSelected = !isSelected
+                            },
+                        colors = CardDefaults.cardColors(Pink100),
                     ){
                         Text(
                             text = comment,

@@ -20,6 +20,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.BlurredEdgeTreatment
+import androidx.compose.ui.draw.blur
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
@@ -55,6 +57,7 @@ fun Plaza(
         var estadoRotacion by remember { mutableStateOf(0f) }
         var estadoEscalado by remember { mutableStateOf(1f) }
         var estadoEfectoAlfa by remember { mutableStateOf(1f) }
+        var estadoDesenfoque by remember { mutableStateOf(0f) }
 
         Spacer(modifier = Modifier.height(20.dp))
         Text(
@@ -79,6 +82,11 @@ fun Plaza(
                         scaleY = estadoEscalado,
                         alpha = estadoEfectoAlfa,
                         rotationY = estadoRotacion
+                    )
+                    .blur(
+                        radiusX = estadoDesenfoque.dp,
+                        radiusY = estadoDesenfoque.dp,
+                        edgeTreatment = BlurredEdgeTreatment.Unbounded
                     ),
                 contentScale = ContentScale.Crop
             )
@@ -147,6 +155,28 @@ fun Plaza(
                     inactiveTrackColor = Color.White
                 ),
                 valueRange = 0.0f..1.0f, steps = 360
+            )
+        }
+        Spacer(modifier = Modifier.height(5.dp))
+        Row (
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center,
+            modifier = Modifier.width(275.dp)
+        ) {
+            Text(
+                text = "Desenfoque",
+                color = Color.White,
+            )
+            Spacer(modifier = Modifier.width(10.dp))
+            Slider(
+                value = estadoDesenfoque,
+                onValueChange = { estadoDesenfoque = it },
+                colors = SliderDefaults.colors(
+                    thumbColor = Orange700,
+                    activeTrackColor = Orange700,
+                    inactiveTrackColor = Color.White
+                ),
+                valueRange = 0.0f..10.0f, steps = 360
             )
         }
     }

@@ -6,7 +6,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.example.pokedex.InfoPokemonViewModel
+import com.example.pokedex.Model.InfoPokemonModel
+import com.example.pokedex.ViewModel.InfoPokemonViewModel
 
 class InfoPokemonView {
     @Composable
@@ -16,7 +17,11 @@ class InfoPokemonView {
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(text = "Ditto")
+            val infoPokemonModel = InfoPokemonModel()
+            val json = infoPokemonModel.getJSON()
+            val name = infoPokemonModel.getNamePokemon(json)
+
+            Text(text = name)
         }
     }
 }
