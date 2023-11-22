@@ -17,11 +17,7 @@ class InfoPokemonView {
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            val infoPokemonModel = InfoPokemonModel()
-            val json = infoPokemonModel.getJSON()
-            val name = infoPokemonModel.getNamePokemon(json)
 
-            Text(text = name)
         }
     }
 }

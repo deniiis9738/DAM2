@@ -10,7 +10,8 @@ data class Pokemon(
     @SerializedName("name")
     val name: String,
     @SerializedName("types")
-    val types: List<String>,
+    val primaryType: String,
+    val secondaryType: String,
     @SerializedName("weight")
     val weight: Float,
     @SerializedName("height")
