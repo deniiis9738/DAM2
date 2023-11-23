@@ -1,19 +1,14 @@
 package com.example.pokedex.Model
 
+import Pokemon
+import android.content.Context
 import com.google.gson.Gson
-import org.json.JSONObject
 
 class InfoPokemonModel {
-//    fun getJSON(): JSONObject {
-//        val fileName = "ditto.json"
-//        val json = Gson().fromJson(fileName, Pokemon::class.java)
-//
-//        return json
-//    }
+    fun getPokemon(context: Context): Pokemon {
+        val gson = Gson()
+        val jsonInputStream = context.assets.open("ditto.json")
 
-    fun getNamePokemon(json: JSONObject): String {
-        val name = json.getString("name")
-
-        return name
+        return gson.fromJson(jsonInputStream.reader(), Pokemon::class.java)
     }
 }
