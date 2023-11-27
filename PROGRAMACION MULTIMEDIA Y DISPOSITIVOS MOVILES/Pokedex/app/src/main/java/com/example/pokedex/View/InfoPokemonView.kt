@@ -1,19 +1,19 @@
 package com.example.pokedex.View
 
 import Pokemon
-import Types
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -36,19 +36,19 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
 import com.example.pokedex.ViewModel.InfoPokemonViewModel
+import com.example.pokedex.ui.theme.BlackGrey
 import com.example.pokedex.ui.theme.Purple40
-import java.time.format.TextStyle
 
 class InfoPokemonView {
     @Composable
     fun InfoPokemon(infoPokemonViewModel: InfoPokemonViewModel) {
-        val pokemon by infoPokemonViewModel.pokemon.observeAsState()
         infoPokemonViewModel.getPokemon(LocalContext.current)
+        val pokemon by infoPokemonViewModel.pokemon.observeAsState()
 
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color.Gray),
+                .background(BlackGrey),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             pokemon?.let { TopBar(it) }
@@ -73,34 +73,39 @@ class InfoPokemonView {
                 modifier = Modifier
                     .padding(20.dp)
             ) }
-            val sizeTypes = pokemon?.types?.size
-//            Row {
-//                for (i in 0 until sizeTypes!!) {
-//                    Box(
-//                        modifier = Modifier
-//                            .width(120.dp)
-//                            .height(30.dp)
-//                            .clip(
-//                                RoundedCornerShape(
-//                                    bottomStart = 50.dp,
-//                                    bottomEnd = 50.dp,
-//                                    topStart = 50.dp,
-//                                    topEnd = 50.dp
-//                                )
-//                            )
-//                            .background(Purple40)
-//                    ) {
-//                        pokemon?.let { Text(
-//                            text = it.types[0].type.name,
-//                            fontSize = 40.sp,
-//                            color = Color.White,
-//                            modifier = Modifier
-//                                .padding(20.dp)
-//                        ) }
-//                    }
-//                    Spacer(modifier = Modifier.width(25.dp))
-//                }
-//            }
+            LazyRow(
+                horizontalArrangement = Arrangement.Center,
+                modifier = Modifier.fillMaxWidth()
+                ) {
+                val types = pokemon?.types ?: emptyList()
+
+                itemsIndexed(types) {index, type ->
+                    Box(
+                        modifier = Modifier
+                            .width(120.dp)
+                            .height(30.dp)
+                            .clip(
+                                RoundedCornerShape(
+                                    bottomStart = 50.dp,
+                                    bottomEnd = 50.dp,
+                                    topStart = 50.dp,
+                                    topEnd = 50.dp
+                                )
+                            )
+                            .background(Purple40),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = type.type.name,
+                            fontSize = 20.sp,
+                            color = Color.White,
+                        )
+                    }
+                    if (index < types.size - 1) {
+                        Spacer(modifier = Modifier.width(20.dp))
+                    }
+                }
+            }
         }
     }
 }
