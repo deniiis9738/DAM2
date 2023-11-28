@@ -3,22 +3,18 @@ package com.example.placesintheworld
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.AnimatedContentTransitionScope
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -31,7 +27,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.placesintheworld.ui.theme.PlacesInTheWorldTheme
-import com.example.placesintheworld.ui.theme.PrimaryColor
 import com.example.placesintheworld.ui.theme.SecondaryColor
 
 class MainActivity : ComponentActivity() {
@@ -43,7 +38,6 @@ class MainActivity : ComponentActivity() {
                 val navController = rememberNavController()
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
-                    topBar = { TopBar() },
                     floatingActionButton = { FAB(navController = navController) },
                 ) {
                     Box(
@@ -58,6 +52,12 @@ class MainActivity : ComponentActivity() {
                             composable("Portada") {
                                 Portada(navController)
                             }
+                            composable("Plazas") {
+                                Plazas(navController)
+                            }
+                            composable("Imagenes") {
+                                Imagenes(navController)
+                            }
                             composable(
                                 route = "Plaza/{nombrePlaza}/{imagenPlaza}",
                                 arguments = listOf(
@@ -70,48 +70,35 @@ class MainActivity : ComponentActivity() {
                                 val imagenPlaza = navBackStackEntry.arguments?.getInt("imagenPlaza") ?: 0
                                 Plaza(nombrePlaza, imagenPlaza)
                             }
+                            composable(
+                                route = "Imagen/{nombreImagen}/{imagenImagen}",
+                                arguments = listOf(
+                                    navArgument("nombreImagen") { type = NavType.StringType },
+                                    navArgument("imagenImagen") { type = NavType.IntType }
+                                ),
+                                enterTransition = {
+                                    slideIntoContainer(
+                                        towards = AnimatedContentTransitionScope.SlideDirection.Companion.Left,
+                                        animationSpec = tween(700)
+                                    )
+                                },
+                                exitTransition = {
+                                    fadeOut(
+                                        animationSpec = tween(2000)
+                                    )
+                                },
+
+                            ) { navBackStackEntry ->
+                                val nombreImagen = navBackStackEntry.arguments?.getString("nombreImagen") ?: ""
+                                val imagenImagen = navBackStackEntry.arguments?.getInt("imagenImagen") ?: 0
+                                Imagen(nombreImagen, imagenImagen)
+                            }
                         }
                     }
                 }
             }
         }
     }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun TopBar() {
-    TopAppBar(
-        title = { Text(
-            text = "PlacesIntheWorld",
-            color = Color.White
-        ) },
-        modifier = Modifier
-            .fillMaxWidth(),
-        navigationIcon = {
-            IconButton(
-                onClick = { /*TODO*/ },
-            ) {
-                Icon(
-                    imageVector = Icons.Filled.Menu,
-                    contentDescription = "Menu",
-                    tint = Color.White
-                )
-            }
-        },
-        colors = TopAppBarDefaults.smallTopAppBarColors(PrimaryColor),
-        actions = {
-            IconButton(
-                onClick = { /*TODO*/ }
-            ) {
-                Icon(
-                    imageVector = Icons.Filled.MoreVert,
-                    contentDescription = "MoreVert",
-                    tint = Color.White
-                )
-            }
-        }
-    )
 }
 
 @Composable

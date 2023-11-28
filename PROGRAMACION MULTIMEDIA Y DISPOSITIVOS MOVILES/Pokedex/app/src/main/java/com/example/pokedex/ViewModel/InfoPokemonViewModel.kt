@@ -7,7 +7,24 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.pokedex.Model.InfoPokemonModel
-import com.example.pokedex.View.TypeColor
+import com.example.pokedex.ui.theme.bugColor
+import com.example.pokedex.ui.theme.darkColor
+import com.example.pokedex.ui.theme.dragonColor
+import com.example.pokedex.ui.theme.electricColor
+import com.example.pokedex.ui.theme.fairyColor
+import com.example.pokedex.ui.theme.fightingColor
+import com.example.pokedex.ui.theme.fireColor
+import com.example.pokedex.ui.theme.flyingColor
+import com.example.pokedex.ui.theme.ghostColor
+import com.example.pokedex.ui.theme.grassColor
+import com.example.pokedex.ui.theme.groundColor
+import com.example.pokedex.ui.theme.iceColor
+import com.example.pokedex.ui.theme.normalColor
+import com.example.pokedex.ui.theme.poisonColor
+import com.example.pokedex.ui.theme.psychicColor
+import com.example.pokedex.ui.theme.rockColor
+import com.example.pokedex.ui.theme.steelColor
+import com.example.pokedex.ui.theme.waterColor
 
 class InfoPokemonViewModel(private val infoPokemonModel: InfoPokemonModel): ViewModel() {
 
@@ -20,24 +37,24 @@ class InfoPokemonViewModel(private val infoPokemonModel: InfoPokemonModel): View
 
     fun getTypeColor(typeColor: String): Color {
         when (typeColor) {
-            "normal" -> return Color.Gray
-            "fire" -> return Color.Gray
-            "water" -> return Color.Gray
-            "electric" -> return Color.Gray
-            "grass" -> return Color.Gray
-            "ice" -> return Color.Gray
-            "figthing" -> return Color.Gray
-            "poison" -> return Color.Gray
-            "ground" -> return Color.Gray
-            "flying" -> return Color.Gray
-            "psychic" -> return Color.Gray
-            "bug" -> return Color.Gray
-            "rock" -> return Color.Gray
-            "ghost" -> return Color.Gray
-            "dragon" -> return Color.Gray
-            "dark" -> return Color.Gray
-            "steel" -> return Color.Gray
-            "fairy" -> return Color.Gray
+            "normal" -> return normalColor
+            "fire" -> return fireColor
+            "water" -> return waterColor
+            "electric" -> return electricColor
+            "grass" -> return grassColor
+            "ice" -> return iceColor
+            "fighting" -> return fightingColor
+            "poison" -> return poisonColor
+            "ground" -> return groundColor
+            "flying" -> return flyingColor
+            "psychic" -> return psychicColor
+            "bug" -> return bugColor
+            "rock" -> return rockColor
+            "ghost" -> return ghostColor
+            "dragon" -> return dragonColor
+            "dark" -> return darkColor
+            "steel" -> return steelColor
+            "fairy" -> return fairyColor
             else -> return Color.Black
         }
     }

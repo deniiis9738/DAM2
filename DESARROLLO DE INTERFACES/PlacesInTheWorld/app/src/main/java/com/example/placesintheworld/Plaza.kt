@@ -54,6 +54,7 @@ fun Plaza(
                 )
             )
     ) {
+        TopBarPlazas()
         var estadoRotacion by remember { mutableStateOf(0f) }
         var estadoEscalado by remember { mutableStateOf(1f) }
         var estadoEfectoAlfa by remember { mutableStateOf(1f) }
