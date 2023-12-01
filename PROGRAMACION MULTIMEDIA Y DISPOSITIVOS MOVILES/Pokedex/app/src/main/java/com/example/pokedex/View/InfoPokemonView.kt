@@ -1,6 +1,8 @@
 package com.example.pokedex.View
 
 import Pokemon
+import android.graphics.Rect
+import android.transition.Slide
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -22,6 +24,8 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.Slider
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
@@ -31,20 +35,24 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.toUpperCase
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
 import com.example.pokedex.ViewModel.InfoPokemonViewModel
 import com.example.pokedex.ui.theme.BlackGrey
 import com.example.pokedex.ui.theme.Purple40
+import java.util.Locale
 
 class InfoPokemonView {
     @Composable
     fun InfoPokemon(infoPokemonViewModel: InfoPokemonViewModel) {
-        infoPokemonViewModel.getPokemon(LocalContext.current)
         val pokemon by infoPokemonViewModel.pokemon.observeAsState()
 
         Column(
@@ -94,7 +102,7 @@ class InfoPokemonView {
                                     topEnd = 50.dp
                                 )
                             )
-                            .background(infoPokemonViewModel.getTypeColor(type.type.name)),
+                            .background(infoPokemonViewModel.getTypeColor(type.type.name)!!),
                         contentAlignment = Alignment.Center
                     ) {
                         Text(
@@ -160,21 +168,48 @@ class InfoPokemonView {
                 val stats = pokemon?.stats ?: emptyList()
 
                 itemsIndexed(stats) { index, stat ->
+                    val statNameText = when (stat.stat.name) {
+                        "attack" -> "ATK"
+                        "special-attack" -> "S.ATK"
+                        "defense" -> "DEF"
+                        "special-defense" -> "S.DEF"
+                        "speed" -> "SPD"
+                        else -> stat.stat.name
+                    }
                     Row(
-                        horizontalArrangement = Arrangement.Center
+                        horizontalArrangement = Arrangement.Center,
+                        modifier = Modifier.padding(3.dp)
                     ) {
                         Text(
-                            text = stat.stat.name,
-                            fontSize = 20.sp,
+                            text = statNameText.run { uppercase(Locale.ROOT) },
+                            fontSize = 15.sp,
                             color = Color.Gray,
                         )
                         Spacer(modifier = Modifier.width(20.dp))
-                        Text(
-                            text = stat.base_stat.toString(),
-                            fontSize = 20.sp,
-                            color = Color.White,
-                        )
+                        Box(
+                            modifier = Modifier
+                                .width(255.dp)
+                                .clip(RoundedCornerShape(15.dp))
+                                .background(Color.White)
+                        ) {
+                            Row(
+                                modifier = Modifier
+                                    .width((255 * 180 / 255).dp)
+                                    .height(17.dp)
+                                    .clip(RoundedCornerShape(15.dp))
+                                    .background(Color.Red),
+                                horizontalArrangement = Arrangement.End,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Text(
+                                    text = stat.base_stat.toString() + "/255",
+                                    color = Color.White,
+                                    fontSize = 13.sp
+                                )
+                            }
+                        }
                     }
+                    Spacer(modifier = Modifier.height(10.dp))
                 }
             }
         }

@@ -1,4 +1,4 @@
-package com.example.pokedex.View
+package com.example.pokedex.Data.Model
 
 import androidx.compose.ui.graphics.Color
 import com.example.pokedex.ui.theme.bugColor
@@ -20,7 +20,7 @@ import com.example.pokedex.ui.theme.rockColor
 import com.example.pokedex.ui.theme.steelColor
 import com.example.pokedex.ui.theme.waterColor
 
-enum class Enum_Colors (val color: Color){
+enum class TypeColor (val color: Color){
     NORMAL(normalColor),
     FIGHTING(fightingColor),
     FLYING(flyingColor),
