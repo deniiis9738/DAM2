@@ -1,8 +1,8 @@
-package com.example.pokedex.View
+package com.example.pokedex.views
 
 import Pokemon
-import android.graphics.Rect
-import android.transition.Slide
+import android.app.Activity
+import androidx.activity.ComponentActivity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -24,8 +24,6 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.LinearProgressIndicator
-import androidx.compose.material3.Slider
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
@@ -35,17 +33,15 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.toUpperCase
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
-import com.example.pokedex.ViewModel.InfoPokemonViewModel
+import com.example.pokedex.viewmodels.InfoPokemonViewModel
 import com.example.pokedex.ui.theme.BlackGrey
 import com.example.pokedex.ui.theme.Purple40
 import java.util.Locale
@@ -54,6 +50,12 @@ class InfoPokemonView {
     @Composable
     fun InfoPokemon(infoPokemonViewModel: InfoPokemonViewModel) {
         val pokemon by infoPokemonViewModel.pokemon.observeAsState()
+
+        val context = LocalContext.current
+        val activity = context as? ComponentActivity
+        activity?.let{
+            it.window.statusBarColor = pokemon?.let { Purple40.toArgb() } ?: Color.Red.toArgb()
+        }
 
         Column(
             modifier = Modifier
@@ -125,7 +127,7 @@ class InfoPokemonView {
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Text(
-                        text = pokemon?.weight.toString() + " KG",
+                        text = (pokemon?.weight?.div(10)).toString() + " KG",
                         fontSize = 20.sp,
                         color = Color.White,
                     )
@@ -142,7 +144,7 @@ class InfoPokemonView {
                     horizontalAlignment = Alignment.CenterHorizontally
                 ){
                     Text(
-                        text = pokemon?.height.toString() + " M",
+                        text = (pokemon?.height?.div(10)).toString() + " M",
                         fontSize = 20.sp,
                         color = Color.White,
                     )
@@ -177,39 +179,45 @@ class InfoPokemonView {
                         else -> stat.stat.name
                     }
                     Row(
-                        horizontalArrangement = Arrangement.Center,
                         modifier = Modifier.padding(3.dp)
                     ) {
-                        Text(
-                            text = statNameText.run { uppercase(Locale.ROOT) },
-                            fontSize = 15.sp,
-                            color = Color.Gray,
-                        )
-                        Spacer(modifier = Modifier.width(20.dp))
-                        Box(
+                        Row(
+                            modifier = Modifier.width(70.dp)
+                        ) {
+                            Text(
+                                text = statNameText.run { uppercase(Locale.ROOT) },
+                                fontSize = 15.sp,
+                                color = Color.Gray,
+                                modifier = Modifier.padding(end = 15.dp),
+                                fontWeight = FontWeight.Bold
+                            )
+                        }
+                        Row(
                             modifier = Modifier
-                                .width(255.dp)
+                                .width(225.dp)
+                                .height(20.dp)
                                 .clip(RoundedCornerShape(15.dp))
                                 .background(Color.White)
                         ) {
                             Row(
                                 modifier = Modifier
-                                    .width((255 * 180 / 255).dp)
-                                    .height(17.dp)
+                                    .width(48.dp)
+                                    .height(20.dp)
                                     .clip(RoundedCornerShape(15.dp))
-                                    .background(Color.Red),
+                                    .background(infoPokemonViewModel.getStatsColor(stat.stat.name)!!),
                                 horizontalArrangement = Arrangement.End,
                                 verticalAlignment = Alignment.CenterVertically
                             ) {
                                 Text(
                                     text = stat.base_stat.toString() + "/255",
                                     color = Color.White,
-                                    fontSize = 13.sp
+                                    fontSize = 13.sp,
+                                    fontWeight = FontWeight.Bold
                                 )
                             }
                         }
                     }
-                    Spacer(modifier = Modifier.height(10.dp))
+                    Spacer(modifier = Modifier.height(7.dp))
                 }
             }
         }

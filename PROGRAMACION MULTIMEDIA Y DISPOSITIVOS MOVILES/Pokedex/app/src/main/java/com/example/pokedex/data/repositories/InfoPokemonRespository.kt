@@ -1,8 +1,9 @@
-package com.example.pokedex.Data.Repository
+package com.example.pokedex.data.repositories
 
 import Pokemon
 import android.app.Application
-import com.example.pokedex.Data.Model.TypeColor
+import com.example.pokedex.data.models.StatsColor
+import com.example.pokedex.data.models.TypeColor
 import com.google.gson.Gson
 
 class InfoPokemonRespository(val application: Application) {
@@ -33,7 +34,18 @@ class InfoPokemonRespository(val application: Application) {
             "dragon" to TypeColor.DRAGON,
             "dark" to TypeColor.DARK,
             "steel" to TypeColor.STEEL,
-            "fairy" to TypeColor.FAIRY,
+            "fairy" to TypeColor.FAIRY
+        )
+    }
+
+    fun colorStats(): HashMap<String, StatsColor> {
+        return hashMapOf(
+            "hp" to StatsColor.HP,
+            "attack" to StatsColor.ATTACK,
+            "special-attack" to StatsColor.SPECIAL_ATTACK,
+            "defense" to StatsColor.DEFENSE,
+            "special-defense" to StatsColor.SPECIAL_DEFENSE,
+            "speed" to StatsColor.SPEED,
         )
     }
 }

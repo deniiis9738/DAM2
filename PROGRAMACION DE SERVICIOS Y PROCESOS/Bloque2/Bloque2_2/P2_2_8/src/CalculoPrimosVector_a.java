@@ -1,4 +1,3 @@
-
 public class CalculoPrimosVector_a {
     public static void main(String args[]) {
         int numHebras;
@@ -13,7 +12,6 @@ public class CalculoPrimosVector_a {
                 200000093L, 4L, 4L, 4L, 4L, 4L, 4L, 4L
         };
 
-
         numHebras = 4;
 
         implementacionSecuencial(vectorNumeros);
@@ -21,8 +19,6 @@ public class CalculoPrimosVector_a {
         implementacionCiclica(vectorNumeros, numHebras);
 
         implementacionBloques(vectorNumeros, numHebras);
-
-
     }
 
     static void implementacionSecuencial(long[] vectorNumeros) {
@@ -36,7 +32,7 @@ public class CalculoPrimosVector_a {
         t1 = System.nanoTime();
         //Escribe aquí la implementación secuencial
         for (long v: vectorNumeros){
-            if (esPrimo(v)){
+            if (esPrimo(v)) {
                 contador++;
             }
         }
