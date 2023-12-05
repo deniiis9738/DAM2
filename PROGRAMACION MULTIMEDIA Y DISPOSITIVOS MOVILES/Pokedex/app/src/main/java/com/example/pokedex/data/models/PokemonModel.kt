@@ -1,3 +1,5 @@
+package com.example.pokedex.data.models
+
 import com.google.gson.annotations.SerializedName
 
 data class Pokemon(
@@ -52,7 +54,7 @@ data class TypeInfo(
 
 data class Stat(
     @SerializedName("base_stat")
-    val base_stat: Int,
+    val baseStat: Int,
     @SerializedName("stat")
     val stat: StatInfo
 )

@@ -1,16 +1,15 @@
 package com.example.pokedex.data.repositories
 
-import Pokemon
+import com.example.pokedex.data.models.Pokemon
 import android.app.Application
 import com.example.pokedex.data.models.StatsColor
 import com.example.pokedex.data.models.TypeColor
 import com.google.gson.Gson
 
-class InfoPokemonRespository(val application: Application) {
-
+class InfoPokemonRepository(private val application: Application) {
     fun getPokemon(): Pokemon {
         val gson = Gson()
-        val jsonInputStream = application.assets.open("ditto.json")
+        val jsonInputStream = application.assets.open("ceruledge.json")
 
         return gson.fromJson(jsonInputStream.reader(), Pokemon::class.java)
     }
