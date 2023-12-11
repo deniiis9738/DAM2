@@ -9,7 +9,7 @@ import com.google.gson.Gson
 class InfoPokemonRepository(private val application: Application) {
     fun getPokemon(): Pokemon {
         val gson = Gson()
-        val jsonInputStream = application.assets.open("ceruledge.json")
+        val jsonInputStream = application.assets.open("rayquaza.json")
 
         return gson.fromJson(jsonInputStream.reader(), Pokemon::class.java)
     }

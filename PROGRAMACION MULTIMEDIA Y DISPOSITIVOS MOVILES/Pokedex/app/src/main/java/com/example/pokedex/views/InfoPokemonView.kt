@@ -59,9 +59,7 @@ class InfoPokemonView {
                     ?: Color.Red.toArgb()
         }
 
-        if (pokemon == null) {
-            Text("Cargando...")
-        } else {
+        if (pokemon != null) {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
