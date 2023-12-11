@@ -20,17 +20,17 @@ class InfoPokemonViewModel(application: Application): AndroidViewModel(applicati
     init {
         viewModelScope.launch {
             delay(3000)
-            getPokemon()
+            getPokemon(777)
         }
     }
 
     private var _pokemon = MutableLiveData<Pokemon>()
     val pokemon: LiveData<Pokemon> = _pokemon
 
-    private fun getPokemon() {
+    private fun getPokemon(id: Int) {
         viewModelScope.launch {
             val loadedPokemon = withContext(Dispatchers.IO) {
-                infoPokemonRepository.getPokemon()
+                infoPokemonRepository.getPokemon(id)
             }
             _pokemon.postValue(loadedPokemon)
         }

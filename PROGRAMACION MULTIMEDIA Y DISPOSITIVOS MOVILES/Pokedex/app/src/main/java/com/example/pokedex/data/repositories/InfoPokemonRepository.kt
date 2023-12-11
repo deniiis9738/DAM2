@@ -5,14 +5,28 @@ import android.app.Application
 import com.example.pokedex.data.models.StatsColor
 import com.example.pokedex.data.models.TypeColor
 import com.google.gson.Gson
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class InfoPokemonRepository(private val application: Application) {
-    fun getPokemon(): Pokemon {
-        val gson = Gson()
-        val jsonInputStream = application.assets.open("rayquaza.json")
+    private val retrofit = Retrofit.Builder()
+        .baseUrl("https://pokeapi.co/api/v2/")
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
 
-        return gson.fromJson(jsonInputStream.reader(), Pokemon::class.java)
+    private val pokeApiService = retrofit.create(PokeApiService::class.java)
+
+    suspend fun getPokemon(id: Int): Pokemon {
+        return pokeApiService.getPokemonById(id)
     }
+
+    //Read pokemon from a json
+//    fun getPokemon(): Pokemon {
+//        val gson = Gson()
+//        val jsonInputStream = application.assets.open("rayquaza.json")
+//
+//        return gson.fromJson(jsonInputStream.reader(), Pokemon::class.java)
+//    }
 
     fun colorTypes(): HashMap<String, TypeColor> {
         return hashMapOf(
