@@ -4,7 +4,6 @@ import com.example.pokedex.data.models.Pokemon
 import android.app.Application
 import com.example.pokedex.data.models.StatsColor
 import com.example.pokedex.data.models.TypeColor
-import com.google.gson.Gson
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -16,8 +15,8 @@ class InfoPokemonRepository(private val application: Application) {
 
     private val pokeApiService = retrofit.create(PokeApiService::class.java)
 
-    suspend fun getPokemon(id: Int): Pokemon {
-        return pokeApiService.getPokemonById(id)
+    suspend fun getPokemon(name: String): Pokemon {
+        return pokeApiService.getPokemonByName(name)
     }
 
     //Read pokemon from a json

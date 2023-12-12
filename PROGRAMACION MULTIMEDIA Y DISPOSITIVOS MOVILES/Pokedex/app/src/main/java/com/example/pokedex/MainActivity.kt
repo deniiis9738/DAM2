@@ -25,11 +25,11 @@ class MainActivity : ComponentActivity() {
                 Scaffold(
                     modifier = Modifier.fillMaxSize()
                 ) {
-//                    val infoPokemonViewModel: InfoPokemonViewModel by viewModels()
+                    val infoPokemonViewModel: InfoPokemonViewModel by viewModels()
 //                    InfoPokemonView().InfoPokemon(infoPokemonViewModel = infoPokemonViewModel)
 
                     val pokemonListViewModel: PokemonListViewModel by viewModels()
-                    PokemonListView().PokemonList(pokemonListViewModel = pokemonListViewModel)
+                    PokemonListView().PokemonList(pokemonListViewModel = pokemonListViewModel, infoPokemonViewModel = infoPokemonViewModel)
                 }
             }
         }
