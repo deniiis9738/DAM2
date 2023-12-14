@@ -10,13 +10,13 @@ public class Nadador {
     private int id;
     @Column(name="nombre")
     private String nombre;
-    @Column(name="numFederado")
+    @Column(name="numFederado", unique = true)
     private String numFederado;
     @Column(name="pais")
     private String pais;
     @Column(name="edad")
     private int edad;
-    @Column(name="email")
+    @Column(name="email", unique = true)
     private String email;
 
     public Nadador() {

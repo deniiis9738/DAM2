@@ -40,109 +40,106 @@ import com.example.reservebites.ui.theme.Brown
 import com.example.reservebites.ui.theme.Gold
 import com.example.reservebites.viewmodels.LoginViewModel
 
-class LoginView {
+@Composable
+fun LoginView(navController: NavController, loginViewModel: LoginViewModel) {
+    val username by loginViewModel.username.observeAsState()
+    val password by loginViewModel.password.observeAsState()
+    val passwordVisibility by loginViewModel.passwordVisibility.observeAsState()
 
-    @Composable
-    fun Login(navController: NavController, loginViewModel: LoginViewModel) {
-        val username by loginViewModel.username.observeAsState()
-        val password by loginViewModel.password.observeAsState()
-        val passwordVisibility by loginViewModel.passwordVisibility.observeAsState()
-
-        Box {
-            Image(
-                painter = painterResource(id = R.drawable.restaurantelujoso),
-                contentDescription = null,
-                modifier = Modifier.fillMaxSize(),
-                contentScale = ContentScale.Crop
+    Box {
+        Image(
+            painter = painterResource(id = R.drawable.restaurantelujoso),
+            contentDescription = null,
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.Crop
+        )
+        Column(
+            modifier = Modifier
+                .fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            Text(
+                text = "ReserveBites",
+                fontSize = 75.sp,
+                fontFamily = loginViewModel.getFontFamily("Tangerine"),
+                fontWeight = FontWeight.Bold
             )
-            Column(
-                modifier = Modifier
-                    .fillMaxSize(),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
+            Image(
+                painter = painterResource(id = R.drawable.logo),
+                contentDescription = null,
+            )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(
-                    text = "ReserveBites",
-                    fontSize = 75.sp,
-                    fontFamily = loginViewModel.getFontFamily("Tangerine"),
-                    fontWeight = FontWeight.Bold
-                )
-                Image(
-                    painter = painterResource(id = R.drawable.logo),
-                    contentDescription = null,
-                )
                 Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.Center,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Row(
-                        modifier = Modifier.width(155.dp)
-                    ) {
-                        Text(
-                            text = "Username",
-                            fontSize = 25.sp,
-                            modifier = Modifier.padding(15.dp),
-                            fontWeight = FontWeight.Bold
-                        )
-                    }
-                    TextField(
-                        value = username.toString(),
-                        onValueChange = { loginViewModel.onUsernameChanged(it) },
-                        modifier = Modifier.padding(10.dp),
-                        colors = TextFieldDefaults.colors(
-                            focusedContainerColor = Brown,
-                            unfocusedContainerColor = Brown,
-                            disabledContainerColor = Gold,
-                            focusedIndicatorColor = Gold,
-                        )
-                    )
-                }
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.Center,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Row(
-                        modifier = Modifier.width(155.dp)
-                    ) {
-                        Text(
-                            text = "Password",
-                            fontSize = 25.sp,
-                            modifier = Modifier.padding(15.dp),
-                            fontWeight = FontWeight.Bold
-                        )
-                    }
-                    TextField(
-                        value = password.toString(),
-                        onValueChange = { loginViewModel.onPasswordChanged(it) },
-                        modifier = Modifier.padding(10.dp),
-                        colors = TextFieldDefaults.colors(
-                            focusedContainerColor = Brown,
-                            unfocusedContainerColor = Brown,
-                            disabledContainerColor = Gold,
-                            focusedIndicatorColor = Gold,
-                        ),
-                        keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Password),
-                        visualTransformation = if (passwordVisibility == true) VisualTransformation.None else PasswordVisualTransformation(),
-                        trailingIcon = {
-                            Icon(
-                                imageVector = loginViewModel.viewIcon(),
-                                contentDescription = "Visible",
-                                tint = Color.Black,
-                                modifier = Modifier.clickable { loginViewModel.togglePasswordVisibility() }
-                            )
-                        }
-                    )
-                }
-                Spacer(modifier = Modifier.height(10.dp))
-                Button(
-                    onClick = { navController.navigate("MainView") }
+                    modifier = Modifier.width(155.dp)
                 ) {
                     Text(
-                        text = "Log In",
+                        text = "Username",
+                        fontSize = 25.sp,
+                        modifier = Modifier.padding(15.dp),
+                        fontWeight = FontWeight.Bold
                     )
                 }
+                TextField(
+                    value = username.toString(),
+                    onValueChange = { loginViewModel.onUsernameChanged(it) },
+                    modifier = Modifier.padding(10.dp),
+                    colors = TextFieldDefaults.colors(
+                        focusedContainerColor = Brown,
+                        unfocusedContainerColor = Brown,
+                        disabledContainerColor = Gold,
+                        focusedIndicatorColor = Gold,
+                    )
+                )
+            }
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Row(
+                    modifier = Modifier.width(155.dp)
+                ) {
+                    Text(
+                        text = "Password",
+                        fontSize = 25.sp,
+                        modifier = Modifier.padding(15.dp),
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+                TextField(
+                    value = password.toString(),
+                    onValueChange = { loginViewModel.onPasswordChanged(it) },
+                    modifier = Modifier.padding(10.dp),
+                    colors = TextFieldDefaults.colors(
+                        focusedContainerColor = Brown,
+                        unfocusedContainerColor = Brown,
+                        disabledContainerColor = Gold,
+                        focusedIndicatorColor = Gold,
+                    ),
+                    keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Password),
+                    visualTransformation = if (passwordVisibility == true) VisualTransformation.None else PasswordVisualTransformation(),
+                    trailingIcon = {
+                        Icon(
+                            imageVector = loginViewModel.viewIcon(),
+                            contentDescription = "Visible",
+                            tint = Color.Black,
+                            modifier = Modifier.clickable { loginViewModel.togglePasswordVisibility() }
+                        )
+                    }
+                )
+            }
+            Spacer(modifier = Modifier.height(10.dp))
+            Button(
+                onClick = { navController.navigate("ForYouView") }
+            ) {
+                Text(
+                    text = "Log In",
+                )
             }
         }
     }
