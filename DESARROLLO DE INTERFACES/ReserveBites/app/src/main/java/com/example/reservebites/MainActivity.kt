@@ -2,10 +2,8 @@ package com.example.reservebites
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -16,8 +14,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.pager.HorizontalPager
-import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBackIosNew
 import androidx.compose.material.icons.filled.Favorite
@@ -38,7 +34,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -49,17 +45,20 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.reservebites.ui.theme.ReserveBitesTheme
+import com.example.reservebites.viewmodels.ForYouViewModel
 import com.example.reservebites.viewmodels.LoginViewModel
+import com.example.reservebites.viewmodels.RestaurantViewModel
 import com.example.reservebites.views.FavouritesView
-import com.example.reservebites.views.LoginView
 import com.example.reservebites.views.ForYouView
+import com.example.reservebites.views.LoginView
+import com.example.reservebites.views.RestaurantView
 import com.example.reservebites.views.SearchView
-import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -69,6 +68,8 @@ class MainActivity : ComponentActivity() {
             ReserveBitesTheme {
                 val navController = rememberNavController()
                 val loginViewModel = LoginViewModel()
+                val forYouViewModel = ForYouViewModel()
+                val restaurantViewModel = RestaurantViewModel()
                 var stateBar by remember { mutableStateOf(false) }
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
@@ -87,16 +88,21 @@ class MainActivity : ComponentActivity() {
                                 stateBar = false
                             }
                             composable("ForYouView") {
-                                ForYouView(navController, loginViewModel)
+                                ForYouView(navController, forYouViewModel)
                                 stateBar = true
                             }
                             composable("FavouritesView") {
                                 FavouritesView(navController, loginViewModel)
-                                stateBar = true
                             }
                             composable("SearchView") {
                                 SearchView(navController, loginViewModel)
-                                stateBar = true
+                            }
+                            composable("RestaurantView/{restaurantName}") { backStackEntry ->
+                                val restaurantName = backStackEntry.arguments?.getString("restaurantName")
+                                val restaurantCard = forYouViewModel.restaurantList.value?.find { it.name == restaurantName }
+                                if (restaurantCard != null) {
+                                    RestaurantView(restaurantCard = restaurantCard, restaurantViewModel = restaurantViewModel)
+                                }
                             }
                         }
                     }
@@ -177,14 +183,13 @@ fun TopAppBarReserveBites(loginViewModel: LoginViewModel) {
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun BottomAppBarReserveBites(navController: NavController, loginViewModel: LoginViewModel) {
     BottomAppBar(
         containerColor = Color.Gray
     ) {
-        val selectedTab by remember { mutableStateOf(0) }
-        var icons = listOf(Icons.Default.Home, Icons.Default.Favorite, Icons.Default.Search)
+        var selectedTab by rememberSaveable { mutableStateOf(0) }
+        val icons = listOf(Icons.Default.Home, Icons.Default.Favorite, Icons.Default.Search)
 
         val destinations = listOf("ForYouView", "FavouritesView", "SearchView")
 
@@ -201,8 +206,11 @@ fun BottomAppBarReserveBites(navController: NavController, loginViewModel: Login
                     onClick = {
                         if (selectedTab != index) {
                             navController.navigate(destinations[index])
+                            selectedTab = index
                         }
-                    }
+                    },
+                    selectedContentColor = Color.Blue,
+                    unselectedContentColor = Color.White
                 ) {
                     Icon(
                         imageVector = icon,
