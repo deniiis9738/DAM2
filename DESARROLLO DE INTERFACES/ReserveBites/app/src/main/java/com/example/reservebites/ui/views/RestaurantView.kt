@@ -1,20 +1,19 @@
-package com.example.reservebites.views
+package com.example.reservebites.ui.views
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -25,7 +24,13 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.reservebites.data.models.RestaurantCard
-import com.example.reservebites.viewmodels.RestaurantViewModel
+import com.example.reservebites.ui.viewmodels.RestaurantViewModel
+import com.google.android.gms.maps.model.CameraPosition
+import com.google.android.gms.maps.model.LatLng
+import com.google.maps.android.compose.GoogleMap
+import com.google.maps.android.compose.Marker
+import com.google.maps.android.compose.MarkerState
+import com.google.maps.android.compose.rememberCameraPositionState
 
 @Composable
 fun RestaurantView(restaurantCard: RestaurantCard, restaurantViewModel: RestaurantViewModel) {
@@ -53,6 +58,27 @@ fun RestaurantView(restaurantCard: RestaurantCard, restaurantViewModel: Restaura
                 modifier = Modifier.padding(top = 15.dp),
                 textAlign = TextAlign.Justify
             )
+            val singapore = LatLng(1.35, 103.87)
+            val cameraPositionState = rememberCameraPositionState {
+                position = CameraPosition.fromLatLngZoom(singapore, 10f)
+            }
+            Spacer(modifier = Modifier.height(15.dp))
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(200.dp)
+            ) {
+                GoogleMap(
+                    modifier = Modifier.fillMaxSize(),
+                    cameraPositionState = cameraPositionState
+                ) {
+                    Marker(
+                        state = MarkerState(position = singapore),
+                        title = "Singapore",
+                        snippet = "Marker in Singapore"
+                    )
+                }
+            }
             Spacer(modifier = Modifier.height(15.dp))
             Text(
                 text = "Reviews",

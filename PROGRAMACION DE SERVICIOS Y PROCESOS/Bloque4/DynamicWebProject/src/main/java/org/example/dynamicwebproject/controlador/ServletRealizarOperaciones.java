@@ -17,29 +17,15 @@ public class ServletRealizarOperaciones extends HttpServlet {
         gestor = new GestorOperador();
     }
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
 
-        // Recuperar parámetros del formulario
-        String operacion = request.getParameter("operacion");
-        double primerNumero = Double.parseDouble(request.getParameter("primerNumero"));
-        double segundoNumero = Double.parseDouble(request.getParameter("segundoNumero"));
-
-        // Realizar operaciones según la operación seleccionada
-        String resultado = gestor.calculaRdo(operacion, primerNumero, segundoNumero);
-
-        // Imprimir el resultado en la respuesta
         PrintWriter out = response.getWriter();
-//        out.println("<html><head><title>Resultado</title></head><body>");
-//        out.println("<h1>Resultado:</h1>");
-//        out.println("<p>El resultado de la operación " + operacion + " es: " + resultado + "</p>");
-//        out.println("<a class='btn btn-primary' href='index.jsp'>Volver al inicio</a>");
-//        out.println("</body></html>");
 
         out.println("<html>\n" +
                 "<head>\n" +
                 "    <meta charset=\"UTF-8\">\n" +
-                "    <title>Tienda Discos</title>\n" +
+                "    <title>Realizar Operaciones</title>\n" +
                 "    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\" crossorigin=\"anonymous\">\n" +
                 "</head>\n" +
                 "<body>\n" +
@@ -49,7 +35,7 @@ public class ServletRealizarOperaciones extends HttpServlet {
                 "\n" +
                 "            <strong><h1>\"Operaciones a realizar...\"</h1></strong>\n" +
                 "\n" +
-                "            <form action=\"formOperacion.html\" method=\"get\">\n" +
+                "            <form action=\"ServletResultadoOperacion\" method=\"post\">\n" +
                 "                <div class=\"mb-3\">\n" +
                 "                    <label for=\"operacion\" class=\"form-label\">Operaciones</label>\n" +
                 "                    <select name=\"operacion\" id=\"operacion\" class=\"form-select\">\n" +

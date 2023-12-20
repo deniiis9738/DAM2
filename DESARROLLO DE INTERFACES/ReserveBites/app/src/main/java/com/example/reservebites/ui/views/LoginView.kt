@@ -1,4 +1,4 @@
-package com.example.reservebites.views
+package com.example.reservebites.ui.views
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -36,7 +36,7 @@ import androidx.navigation.NavController
 import com.example.reservebites.R
 import com.example.reservebites.ui.theme.Brown
 import com.example.reservebites.ui.theme.Gold
-import com.example.reservebites.viewmodels.LoginViewModel
+import com.example.reservebites.ui.viewmodels.LoginViewModel
 
 @Composable
 fun LoginView(navController: NavController, loginViewModel: LoginViewModel) {

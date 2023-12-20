@@ -1,4 +1,4 @@
-package com.example.reservebites.viewmodels
+package com.example.reservebites.ui.viewmodels
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility

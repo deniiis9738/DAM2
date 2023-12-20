@@ -1,4 +1,4 @@
-package com.example.reservebites.views
+package com.example.reservebites.ui.views
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
@@ -34,7 +34,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.reservebites.viewmodels.ForYouViewModel
+import com.example.reservebites.ui.viewmodels.ForYouViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")

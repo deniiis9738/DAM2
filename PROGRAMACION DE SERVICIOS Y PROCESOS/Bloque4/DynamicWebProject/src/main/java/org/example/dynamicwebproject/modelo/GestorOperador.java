@@ -59,6 +59,10 @@ public class GestorOperador {
 	}
 
 	public String[] listaDeOperaciones() {
+		operaciones.add("Suma");
+		operaciones.add("Resta");
+		operaciones.add("Producto");
+		operaciones.add("División");
 		return hashArray(operaciones);
 	}
 
@@ -70,18 +74,18 @@ public class GestorOperador {
 	}
 
 	public String calculaRdo(String oper, double op1, double op2) {
-		double rdo = 0.0;
+		double rdo;
 		switch (oper) {
-			case "+":
+			case "suma":
 				rdo = op1 + op2;
 				break;
-			case "-":
+			case "resta":
 				rdo = op1 - op2;
 				break;
-			case "*":
+			case "producto":
 				rdo = op1 * op2;
 				break;
-			case "/":
+			case "division":
 				if (op2 != 0) {
 					rdo = op1 / op2;
 				} else {

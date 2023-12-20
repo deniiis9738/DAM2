@@ -51,14 +51,14 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.reservebites.ui.theme.ReserveBitesTheme
-import com.example.reservebites.viewmodels.ForYouViewModel
-import com.example.reservebites.viewmodels.LoginViewModel
-import com.example.reservebites.viewmodels.RestaurantViewModel
-import com.example.reservebites.views.FavouritesView
-import com.example.reservebites.views.ForYouView
-import com.example.reservebites.views.LoginView
-import com.example.reservebites.views.RestaurantView
-import com.example.reservebites.views.SearchView
+import com.example.reservebites.ui.viewmodels.ForYouViewModel
+import com.example.reservebites.ui.viewmodels.LoginViewModel
+import com.example.reservebites.ui.viewmodels.RestaurantViewModel
+import com.example.reservebites.ui.views.FavouritesView
+import com.example.reservebites.ui.views.ForYouView
+import com.example.reservebites.ui.views.LoginView
+import com.example.reservebites.ui.views.RestaurantView
+import com.example.reservebites.ui.views.SearchView
 
 class MainActivity : ComponentActivity() {
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
