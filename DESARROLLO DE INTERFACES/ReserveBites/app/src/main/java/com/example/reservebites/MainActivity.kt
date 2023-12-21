@@ -77,7 +77,7 @@ class MainActivity : ComponentActivity() {
                     bottomBar = { if (stateBar) BottomAppBarReserveBites(navController, loginViewModel) }
                 ) {
                     Column(
-                        modifier = Modifier.padding(top = it.calculateTopPadding())
+                        modifier = Modifier.padding(top = it.calculateTopPadding(), bottom = it.calculateBottomPadding())
                     ) {
                         NavHost(
                             navController = navController,

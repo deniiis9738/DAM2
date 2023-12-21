@@ -6,11 +6,9 @@ class RestaurantRepository {
             "Muy buen servicio",
             "Comida espectacular",
             "De lo mejor que he probado, el personal muy agradable",
-            "Comida espectacular",
-            "Comida espectacular",
-            "Comida espectacular",
-            "Comida espectacular",
-            "Comida espectacular"
+            "Podría mejorar el servicio",
+            "Precios muy elevados",
+            "Sitio muy acogedor"
         )
     }
 }

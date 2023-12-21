@@ -3,17 +3,21 @@ package com.example.reservebites.ui.views
 import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.outlined.Favorite
 import androidx.compose.material.icons.outlined.HeartBroken
 import androidx.compose.material.icons.outlined.Star
 import androidx.compose.material3.Card
@@ -27,6 +31,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -45,7 +50,14 @@ fun ForYouView(navController: NavController, forYouViewModel: ForYouViewModel) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.Black),
+            .background(
+                brush = Brush.verticalGradient(
+                    colors = listOf(
+                        Color(0xE6192734),
+                        Color(0xE21E2B33)
+                    )
+                )
+            ),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         items(restaurantList ?: emptyList()) { restaurant ->
@@ -53,50 +65,72 @@ fun ForYouView(navController: NavController, forYouViewModel: ForYouViewModel) {
                 modifier = Modifier
                     .padding(10.dp)
                     .size(525.dp),
-                colors = CardDefaults.cardColors(Color.White),
+                colors = CardDefaults.cardColors(Color(0xFF1E2B33)),
                 onClick = {
                     navController.navigate("RestaurantView/${restaurant.name}")
-                }
+                },
+                elevation = CardDefaults.cardElevation(
+                    defaultElevation = 25.dp
+                ),
             ) {
-                Text(
-                    text = restaurant.name,
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier.padding(5.dp)
-                )
-                Image(
-                    painter = painterResource(id = restaurant.image),
-                    contentDescription = restaurant.name,
-                    modifier = Modifier.height(300.dp),
-                    contentScale = ContentScale.Crop,
-                )
-                Text(
-                    text = restaurant.description,
-                    modifier = Modifier.padding(5.dp)
-                )
-                Spacer(modifier = Modifier.height(10.dp))
-                Row(
-                    modifier = Modifier.padding(10.dp)
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(16.dp)
                 ) {
-                    for (i in 1..5) {
-                        val filled = i <= restaurant.valoration
-                        Icon(
-                            imageVector = if (filled) Icons.Filled.Star else Icons.Outlined.Star,
-                            contentDescription = null,
-                            tint = if (filled) Color.Red else Color.Gray,
-                        )
-                        Spacer(modifier = Modifier.width(13.dp))
-                    }
-                    Spacer(modifier = Modifier.width(120.dp))
-                    IconButton(
-                        onClick = {
-
-                        }
+                    Text(
+                        text = restaurant.name,
+                        fontSize = 24.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color.White,
+                        modifier = Modifier.padding(5.dp)
+                    )
+                    Spacer(modifier = Modifier.height(10.dp))
+                    Image(
+                        painter = painterResource(id = restaurant.image),
+                        contentDescription = restaurant.name,
+                        modifier = Modifier
+                            .height(225.dp),
+                        contentScale = ContentScale.Crop
+                    )
+                    Spacer(modifier = Modifier.height(10.dp))
+                    Text(
+                        text = restaurant.description,
+                        color = Color.Gray,
+                        fontSize = 16.sp,
+                        modifier = Modifier.padding(5.dp)
+                    )
+                    Spacer(modifier = Modifier.height(10.dp))
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(10.dp),
+                        verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Icon(
-                            imageVector = Icons.Outlined.HeartBroken,
-                            contentDescription = null
-                        )
+                        for (i in 1..5) {
+                            val filled = i <= restaurant.valoration
+                            Icon(
+                                imageVector = if (filled) Icons.Filled.Star else Icons.Outlined.Star,
+                                contentDescription = null,
+                                tint = if (filled) Color.Yellow else Color.Gray,
+                                modifier = Modifier.size(24.dp)
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                        }
+                        Spacer(modifier = Modifier.weight(1f))
+                        IconButton(
+                            onClick = {
+
+                            },
+                            modifier = Modifier
+                                .size(36.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Outlined.Favorite,
+                                contentDescription = null,
+                                tint = Color.White
+                            )
+                        }
                     }
                 }
             }
