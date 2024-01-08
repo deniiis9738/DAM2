@@ -1,8 +1,11 @@
 package com.example.reservebites.ui.views
 
 import android.annotation.SuppressLint
+import android.widget.Toast
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -14,11 +17,10 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.outlined.Favorite
-import androidx.compose.material.icons.outlined.HeartBroken
 import androidx.compose.material.icons.outlined.Star
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -29,11 +31,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -41,7 +47,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.reservebites.ui.viewmodels.ForYouViewModel
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun ForYouView(navController: NavController, forYouViewModel: ForYouViewModel) {
@@ -118,17 +124,22 @@ fun ForYouView(navController: NavController, forYouViewModel: ForYouViewModel) {
                             Spacer(modifier = Modifier.width(8.dp))
                         }
                         Spacer(modifier = Modifier.weight(1f))
+                        var isFavorite by remember { mutableStateOf(false) }
+                        val context = LocalContext.current
+
                         IconButton(
                             onClick = {
-
+                                isFavorite = !isFavorite
+                                val message = if (isFavorite) "Restaurante añadido a favoritos" else "Restaurante eliminado de favoritos"
+                                Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
                             },
                             modifier = Modifier
                                 .size(36.dp)
                         ) {
                             Icon(
-                                imageVector = Icons.Outlined.Favorite,
+                                imageVector = if (isFavorite) Icons.Outlined.Favorite else Icons.Filled.Favorite,
                                 contentDescription = null,
-                                tint = Color.White
+                                tint = if (isFavorite) Color.Red else Color.White
                             )
                         }
                     }

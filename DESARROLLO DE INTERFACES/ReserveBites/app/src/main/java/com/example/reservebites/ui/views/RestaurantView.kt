@@ -9,13 +9,17 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.Divider
+import androidx.compose.material3.ExtendedFloatingActionButton
+import androidx.compose.material3.FloatingActionButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
@@ -27,6 +31,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.reservebites.data.models.RestaurantCard
 import com.example.reservebites.ui.viewmodels.RestaurantViewModel
 import com.google.android.gms.maps.model.CameraPosition
@@ -37,16 +42,15 @@ import com.google.maps.android.compose.MarkerState
 import com.google.maps.android.compose.rememberCameraPositionState
 
 @Composable
-fun RestaurantView(restaurantCard: RestaurantCard, restaurantViewModel: RestaurantViewModel) {
+fun RestaurantView(restaurantCard: RestaurantCard, restaurantViewModel: RestaurantViewModel, navController: NavController) {
     val reviewsList by restaurantViewModel.reviewsList.observeAsState()
-
     Box(
         modifier = Modifier
             .fillMaxSize()
             .background(
                 brush = Brush.verticalGradient(
                     colors = listOf(
-                        Color(0xFF2C3E50),  // Color superior del gradiente
+                        Color(0xFF2C3E50),
                         Color(0xFF1F2A38)
                     )
                 )
@@ -55,6 +59,7 @@ fun RestaurantView(restaurantCard: RestaurantCard, restaurantViewModel: Restaura
     ) {
         LazyColumn(
             modifier = Modifier
+                .fillMaxSize()
                 .padding(10.dp)
         ) {
             item {
@@ -120,7 +125,6 @@ fun RestaurantView(restaurantCard: RestaurantCard, restaurantViewModel: Restaura
                     textAlign = TextAlign.Start,
                 )
             }
-
             itemsIndexed(reviewsList ?: emptyList()) { index, review ->
                 Column(
                     modifier = Modifier
@@ -148,5 +152,34 @@ fun RestaurantView(restaurantCard: RestaurantCard, restaurantViewModel: Restaura
                 }
             }
         }
+        FloatingActionButton(navController)
+    }
+}
+
+@Composable
+private fun FloatingActionButton(navController: NavController) {
+    Box(
+        modifier = Modifier
+            .padding(16.dp)
+            .fillMaxSize(),
+        contentAlignment = Alignment.BottomEnd
+    ) {
+        ExtendedFloatingActionButton(
+            onClick = {
+                navController.navigate("BookingView")
+            },
+            modifier = Modifier
+                .padding(16.dp)
+                .height(60.dp)
+                .width(100.dp),
+            content = {
+                Text(
+                    text = "Reservar",
+                    color = Color.White,
+                )
+            },
+            containerColor = Color(0xFF071B29),
+            elevation = FloatingActionButtonDefaults.elevation(8.dp)
+        )
     }
 }

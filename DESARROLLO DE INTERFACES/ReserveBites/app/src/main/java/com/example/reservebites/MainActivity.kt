@@ -45,15 +45,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navArgument
 import com.example.reservebites.ui.theme.ReserveBitesTheme
 import com.example.reservebites.ui.viewmodels.ForYouViewModel
 import com.example.reservebites.ui.viewmodels.LoginViewModel
 import com.example.reservebites.ui.viewmodels.RestaurantViewModel
+import com.example.reservebites.ui.views.BookingView
 import com.example.reservebites.ui.views.FavouritesView
 import com.example.reservebites.ui.views.ForYouView
 import com.example.reservebites.ui.views.LoginView
@@ -73,7 +72,7 @@ class MainActivity : ComponentActivity() {
                 var stateBar by remember { mutableStateOf(false) }
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
-                    topBar = { if (stateBar) TopAppBarReserveBites(loginViewModel) },
+                    topBar = { if (stateBar) TopAppBarReserveBites(navBack = { navController.navigateUp() }, loginViewModel) },
                     bottomBar = { if (stateBar) BottomAppBarReserveBites(navController, loginViewModel) }
                 ) {
                     Column(
@@ -101,8 +100,11 @@ class MainActivity : ComponentActivity() {
                                 val restaurantName = backStackEntry.arguments?.getString("restaurantName")
                                 val restaurantCard = forYouViewModel.restaurantList.value?.find { it.name == restaurantName }
                                 if (restaurantCard != null) {
-                                    RestaurantView(restaurantCard = restaurantCard, restaurantViewModel = restaurantViewModel)
+                                    RestaurantView(restaurantCard = restaurantCard, restaurantViewModel = restaurantViewModel, navController)
                                 }
+                            }
+                            composable("BookingView") {
+                                BookingView()
                             }
                         }
                     }
@@ -114,7 +116,7 @@ class MainActivity : ComponentActivity() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TopAppBarReserveBites(loginViewModel: LoginViewModel) {
+fun TopAppBarReserveBites(navBack: () -> Unit, loginViewModel: LoginViewModel) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -158,7 +160,10 @@ fun TopAppBarReserveBites(loginViewModel: LoginViewModel) {
                 .fillMaxWidth(),
             navigationIcon = {
                 IconButton(
-                    onClick = { /*TODO*/ },
+                    onClick = {
+                        // Llamar a la función navBack al hacer clic en el icono de retroceso
+                        navBack.invoke()
+                    },
                 ) {
                     Icon(
                         imageVector = Icons.Filled.ArrowBackIosNew,
@@ -186,7 +191,7 @@ fun TopAppBarReserveBites(loginViewModel: LoginViewModel) {
 @Composable
 fun BottomAppBarReserveBites(navController: NavController, loginViewModel: LoginViewModel) {
     BottomAppBar(
-        containerColor = Color.Gray
+        containerColor = Color(0xFF101724)
     ) {
         var selectedTab by rememberSaveable { mutableStateOf(0) }
         val icons = listOf(Icons.Default.Home, Icons.Default.Favorite, Icons.Default.Search)
@@ -195,7 +200,7 @@ fun BottomAppBarReserveBites(navController: NavController, loginViewModel: Login
 
         TabRow(
             selectedTabIndex = selectedTab,
-            containerColor = Color.Gray,
+            containerColor = Color(0xFF101724),
             contentColor = Color.White,
             modifier = Modifier
                 .fillMaxWidth()
@@ -209,7 +214,7 @@ fun BottomAppBarReserveBites(navController: NavController, loginViewModel: Login
                             selectedTab = index
                         }
                     },
-                    selectedContentColor = Color.Blue,
+                    selectedContentColor = Color.Yellow,
                     unselectedContentColor = Color.White
                 ) {
                     Icon(

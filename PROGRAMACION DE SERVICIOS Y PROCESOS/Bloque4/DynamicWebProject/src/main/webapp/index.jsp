@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<h1>Gestión de Operaciones</h1>
+<h1>Stanciu maricón</h1>
 <ul>
     <li><a href="listadoDeOperaciones">Listado de Operaciones Implementadas</a></li>
     <li><a href="formOperacion">Realizar cálculos...</a></li>
